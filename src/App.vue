@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import NewUserStoryField from './components/user_stories/NewUserStoryField.vue';
+
+
 </script>
 
 <template>
-  <HelloWorld />
+  <NewUserStoryField label-text="Default"/>
 </template>

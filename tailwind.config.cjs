@@ -6,10 +6,21 @@ module.exports = {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
   ],
-  theme: {
-    extend: {},
-  },
   plugins: [],
   mode: "jit",
-  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"]
+  purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+      
+      },
+      fontFamily: {
+        sans: [
+          '"Source Sans Pro"',
+          'Roboto',
+          'sans-serif',
+        ],
+      },
+    }
+  },
 }
