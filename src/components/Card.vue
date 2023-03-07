@@ -13,7 +13,9 @@ defineProps({
 </template>
 
 <style scoped>
-    
+    h4 {
+        @apply font-bold
+    }
 
     .card {
         @apply bg-white rounded-sm shadow-md w-80 p-3

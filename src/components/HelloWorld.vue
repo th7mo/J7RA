@@ -11,7 +11,7 @@ function increaseCounter() {
 
 <template>
   <Card title="Primary Text" sub-text="A short description" />
-  <button @click="increaseCounter">Count is: {{ counter }}</button>
+  <!-- <button @click="increaseCounter">Count is: {{ counter }}</button> -->
 </template>
 
 <style scoped>
