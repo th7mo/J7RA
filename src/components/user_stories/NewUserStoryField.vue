@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import NewUserStoryLabel from './NewUserStoryLabel.vue'
 
 interface Props {
   required?: boolean
@@ -14,17 +15,13 @@ const userInput = ref('')
 </script>
 
 <template>
-  <label for="userInput">{{ labelText }} <span>{{ required ? '*' : '' }}</span></label>
-  <input v-model="userInput" type="text" id="userInput">
+  <NewUserStoryLabel :required="true" :label-text="labelText"/>
+  <input v-model="userInput" type="text">
 </template>
 
 <style scoped>
-  input, label {
+  input {
     @apply block
-  }
-
-  label {
-    @apply text-sm text-gray-600 pl-0.5
   }
 
   input[type="text"] {
@@ -34,8 +31,4 @@ const userInput = ref('')
   input[type="text"]:focus {
     @apply border-blue-500 border-2 
   }   
-
-  span {
-    @apply text-red-600 font-bold 
-  }
 </style>

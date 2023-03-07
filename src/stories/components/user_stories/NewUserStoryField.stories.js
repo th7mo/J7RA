@@ -15,9 +15,22 @@ const Template = (args) => ({
     `
 });
 
-export const Empty = Template.bind({});
+export const RequiredFieldWithSmallLabel = Template.bind({});
 
-Empty.args = {
+RequiredFieldWithSmallLabel.args = {
     required: true,
     labelText: 'Summary'
+}
+
+export const OptionalFieldWithLongerLabel = Template.bind({});
+
+OptionalFieldWithLongerLabel.args = {
+    labelText: 'A bit longer label for this input'
+}
+
+export const RequiredTextAreaFieldSmallLabel = Template.bind({});
+
+RequiredTextAreaFieldSmallLabel.args = {
+    required: true,
+    labelText: 'Description'
 }

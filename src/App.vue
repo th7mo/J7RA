@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import NewUserStoryField from './components/user_stories/NewUserStoryField.vue';
-
+import NewUserStoryFieldTextArea from './components/user_stories/NewUserStoryFieldTextArea.vue';
 
 </script>
 
 <template>
-  <NewUserStoryField label-text="Default"/>
+  <NewUserStoryFieldTextArea :required="true" label-text="Default"/>
 </template>
