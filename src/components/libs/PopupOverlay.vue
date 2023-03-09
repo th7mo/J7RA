@@ -1,16 +1,17 @@
 <script setup lang="ts">
-
+const emit = defineEmits<{
+  (e: 'close'): void
+}>()
 </script>
 
 <template>
   <Teleport to="body">
-    <div>
-      <section>
+    <div @click="emit('close')">
+      <section @click.stop="">
         <slot></slot>
       </section>
     </div>
   </Teleport>
-
 </template>
 
 <style scoped>

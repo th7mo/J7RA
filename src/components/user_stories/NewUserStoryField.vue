@@ -15,7 +15,7 @@ const userInput = ref('')
 </script>
 
 <template>
-  <NewUserStoryLabel :required="true" :label-text="labelText"/>
+  <NewUserStoryLabel :required="required" :label-text="labelText"/>
   <input v-model="userInput" type="text">
 </template>
 
@@ -32,3 +32,4 @@ const userInput = ref('')
     @apply border-blue-500 border-2 
   }   
 </style>
+ 
