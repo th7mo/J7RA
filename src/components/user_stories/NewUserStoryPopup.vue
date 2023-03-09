@@ -22,9 +22,12 @@ const isCreateUserStoryButtonClicked = ref(false)
 
 function createUserStory() {
   isCreateUserStoryButtonClicked.value = true
-  if (isInvalidSummary) {
+  console.log("fefe");
+  
+  if (isInvalidSummary.value) {
     return
   }
+  emit('close')
     // TODO: store User Story
 }
 
