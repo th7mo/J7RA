@@ -3,32 +3,43 @@ import { ref } from 'vue'
 import NewUserStoryLabel from './NewUserStoryLabel.vue'
 
 interface Props {
-  required?: boolean
   labelText: string
+  modelValue: string
+  required?: boolean
+  error?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
-  required: false
+  required: false,
+  error: false
 })
 
-const userInput = ref('')
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
 </script>
 
 <template>
-  <NewUserStoryLabel :required="required" :label-text="labelText"/>
-  <input v-model="userInput" type="text">
+  <section>
+    <NewUserStoryLabel :required="required" :label-text="labelText"/>
+    <input 
+      @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+      type="text" 
+      :class="error ? 'error': ''
+    ">
+  </section>
 </template>
 
 <style scoped lang="scss">
   input {
-    @apply block;
+    @apply block outline-none border-gray-200 border-2 rounded-sm p-1 w-full;
 
-    &[type="text"] {
-      @apply outline-none border-gray-200 border-2 rounded-sm p-1 w-full;
+    &:focus {
+      @apply border-blue-500;
+    }
 
-      &:focus {
-        @apply border-blue-500 border-2 
-      }
+    &.error {
+      @apply border-red-500 border-2;
     }
   }
 </style>

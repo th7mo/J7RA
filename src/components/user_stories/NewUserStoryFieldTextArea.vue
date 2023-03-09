@@ -4,6 +4,7 @@ import NewUserStoryLabel from './NewUserStoryLabel.vue'
 
 interface Props {
   labelText: string
+  modelValue: string
   required?: boolean
   placeHolder?: string
   rows?: number
@@ -14,12 +15,22 @@ withDefaults(defineProps<Props>(), {
   required: false
 })
 
-const userInput = ref('')
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
+
 </script>
 
 <template>
-  <NewUserStoryLabel :required="required" :label-text="labelText"/>
-  <textarea :rows="rows" v-model="userInput" :placeholder="placeHolder"></textarea>
+  <section>
+    <NewUserStoryLabel :required="required" :label-text="labelText"/>
+    <textarea
+      @keyup="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
+      v-text="modelValue"
+      :rows="rows"
+      :placeholder="placeHolder"
+    ></textarea>
+  </section>
 </template>
 
 <style scoped lang="scss">

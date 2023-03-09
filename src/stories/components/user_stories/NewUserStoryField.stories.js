@@ -18,8 +18,8 @@ const Template = (args) => ({
 export const RequiredFieldWithSmallLabel = Template.bind({});
 
 RequiredFieldWithSmallLabel.args = {
+    labelText: 'Summary',
     required: true,
-    labelText: 'Summary'
 }
 
 export const OptionalFieldWithLongerLabel = Template.bind({});
@@ -28,9 +28,10 @@ OptionalFieldWithLongerLabel.args = {
     labelText: 'A bit longer label for this input'
 }
 
-export const RequiredTextAreaFieldSmallLabel = Template.bind({});
+export const InvalidUserInput = Template.bind({});
 
-RequiredTextAreaFieldSmallLabel.args = {
+InvalidUserInput.args = {
+    labelText: 'Summary',
     required: true,
-    labelText: 'Description'
+    error: true
 }
