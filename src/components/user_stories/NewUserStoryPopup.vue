@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { stringLiteral } from '@babel/types';
-import { reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import PopupOverlay from '../libs/PopupOverlay.vue'
 import TheButton from '../libs/TheButton.vue'
 import NewUserStoryField from './NewUserStoryField.vue'
@@ -15,17 +14,32 @@ const userStory = reactive({
   description: '',
 })
 
+const isInvalidSummary = computed(() => {
+  return isCreateUserStoryButtonClicked.value && userStory.summary.trim() === ''
+})
+
+const isCreateUserStoryButtonClicked = ref(false)
+
 function createUserStory() {
-  console.log(userStory);
-  
+  isCreateUserStoryButtonClicked.value = true
+  if (isInvalidSummary) {
+    return
+  }
+    // TODO: store User Story
 }
+
 </script>
 
 <template>
   <PopupOverlay @close="emit('close')">
   <h2>Create User Story</h2>
     <main>
-      <NewUserStoryField :required="true" label-text="Summary" v-model="userStory.summary"/>
+      <NewUserStoryField 
+        :required="true" 
+        label-text="Summary" 
+        v-model="userStory.summary"
+        :error="isInvalidSummary"
+      />
       <NewUserStoryFieldTextArea 
         label-text="Description" 
         place-holder="You can enter more details here!" 

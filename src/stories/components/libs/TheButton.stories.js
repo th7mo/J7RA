@@ -35,3 +35,18 @@ ButtonNotFilled.args = {
     filled: false,
     default: `Create`
 }
+
+export const ButtonDisabledAndFilled = Template.bind({});
+
+ButtonDisabledAndFilled.args = {
+    default: `Create`,
+    disabled: true
+}
+
+export const ButtonDisabledAndNotFilled = Template.bind({});
+
+ButtonDisabledAndNotFilled.args = {
+    default: `Create`,
+    disabled: true,
+    filled: false
+}
