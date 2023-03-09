@@ -22,8 +22,8 @@ const userInput = ref('')
   <textarea :rows="rows" v-model="userInput" :placeholder="placeHolder"></textarea>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   textarea {
-    @apply box-border outline-none border-gray-200 border-2 rounded-sm p-1 w-full resize-none
+    @apply box-border outline-none border-gray-200 border-2 rounded-sm p-1 w-full resize-none;
   }
 </style>

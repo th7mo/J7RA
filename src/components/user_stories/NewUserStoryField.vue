@@ -19,17 +19,17 @@ const userInput = ref('')
   <input v-model="userInput" type="text">
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   input {
-    @apply block
-  }
+    @apply block;
 
-  input[type="text"] {
-    @apply outline-none border-gray-200 border-2 rounded-sm p-1 w-full
-  }
+    &[type="text"] {
+      @apply outline-none border-gray-200 border-2 rounded-sm p-1 w-full;
 
-  input[type="text"]:focus {
-    @apply border-blue-500 border-2 
-  }   
+      &:focus {
+        @apply border-blue-500 border-2 
+      }
+    }
+  }
 </style>
  

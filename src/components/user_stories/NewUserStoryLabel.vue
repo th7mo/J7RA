@@ -15,12 +15,12 @@ withDefaults(defineProps<Props>(), {
   <slot></slot>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   p {
-    @apply text-sm text-gray-600 pl-0.5
+    @apply text-sm text-gray-600 pl-0.5;
   }
 
   span {
-    @apply text-red-600 font-bold 
+    @apply text-red-600 font-bold;
   }
 </style>

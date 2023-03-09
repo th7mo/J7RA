@@ -16,12 +16,8 @@ const emit = defineEmits<{
   </PopupOverlay>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
   h2 {
-    @apply w-[40vw]
-  }
-
-  h2 {
-    @apply text-2xl mb-8
+    @apply w-[40vw] text-2xl mb-8
   }
 </style>
