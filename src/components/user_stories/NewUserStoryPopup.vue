@@ -5,11 +5,15 @@ import TheButton from '../libs/TheButton.vue'
 import NewUserStoryField from './NewUserStoryField.vue'
 import NewUserStoryFieldTextArea from './NewUserStoryFieldTextArea.vue'
 
+import { UserStory } from '@/src/services/UserStoryService';
+import userStoryService from '../../services/UserStoryService';
+
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-const userStory = reactive({
+const userStory = reactive<UserStory>({
+  key: 1,
   summary: '',
   description: '',
 })
@@ -28,7 +32,7 @@ function createUserStory() {
     return
   }
   emit('close')
-    // TODO: store User Story
+  userStoryService.postStory(userStory)
 }
 
 </script>
