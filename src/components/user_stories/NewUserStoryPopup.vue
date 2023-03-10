@@ -55,8 +55,8 @@ function createUserStory() {
       />
 
       <section>
-        <TheButton @click="createUserStory" class="button">Create</TheButton>
-        <TheButton @click="emit('close')" :filled="false" class="button button__cancel">Cancel</TheButton>
+        <TheButton @click="createUserStory" class="button" label="Create"/>
+        <TheButton @click="emit('close')" :filled="false" class="button button__cancel" label="Cancel" />
       </section>
     </main>
   </PopupOverlay>

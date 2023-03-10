@@ -1,52 +1,40 @@
 import TheButton from '/src/components/libs/TheButton.vue';
 
 export default {
-    title: 'TheButton',
+    title: 'libs/TheButton',
     component: TheButton,
 }
 
-const Template = (args) => ({
-    components: { TheButton },
-    setup() {
-        return { args };
+export const DefaultButton = {
+    args: {
+        label: 'Create',
     },
-    template: `
-        <TheButton v-bind="args">
-            <template v-slot>${args.default}</template>
-        </TheButton>
-    `
-});
+};
 
-export const DefaultButton = Template.bind({});
+export const DefaultButtonLong = {
+    args: {
+        label: 'Creata a new User Story',
+    },
+};
 
-DefaultButton.args = {
-    default: `Create`
-}
+export const ButtonNotFilled = {
+    args: {
+        label: 'Create',
+        filled: false,
+    },
+};
 
-export const DefaultButtonLong = Template.bind({});
+export const ButtonDisabledAndFilled = {
+    args: {
+        label: `Create`,
+        disabled: true,
+    },
+};
 
-DefaultButtonLong.args = {
-    default: `Create a new User Story`
-}
-
-export const ButtonNotFilled = Template.bind({});
-
-ButtonNotFilled.args = {
-    filled: false,
-    default: `Create`
-}
-
-export const ButtonDisabledAndFilled = Template.bind({});
-
-ButtonDisabledAndFilled.args = {
-    default: `Create`,
-    disabled: true
-}
-
-export const ButtonDisabledAndNotFilled = Template.bind({});
-
-ButtonDisabledAndNotFilled.args = {
-    default: `Create`,
-    disabled: true,
-    filled: false
-}
+export const ButtonDisabledAndNotFilled = {
+    args: {
+        label: `Create`,
+        disabled: true,
+        filled: false,
+    },
+};

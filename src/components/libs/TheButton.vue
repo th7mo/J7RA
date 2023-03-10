@@ -1,5 +1,6 @@
 <script setup lang="ts">
 interface Props {
+  label: string
   filled?: boolean
   disabled?: boolean
 }
@@ -13,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <button :class="filled ? 'filled' : ''" :disabled="disabled">
-    <slot></slot>
+    {{ label }}
   </button>
 </template>
 

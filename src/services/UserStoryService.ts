@@ -12,7 +12,7 @@ export default new class {
     highestKey = 0;
 
     async getAllStories(): Promise<UserStory[]> {
-        return await axios.get(FIRESTORE_URL).then(response => {
+        return axios.get(FIRESTORE_URL).then(response => {
             const responseObject = response.data;
             const results: UserStory[] = [];
 
