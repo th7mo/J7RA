@@ -1,12 +1,20 @@
 <script setup lang="ts">
-const emit = defineEmits<{
-  (e: 'close'): void
-}>()
+  interface Props {
+    cappedWidth?: boolean;
+  }
+
+  const props = withDefaults(defineProps<Props>(), {
+    cappedWidth: false,
+  });
+
+  const emit = defineEmits<{
+    (e: 'close'): void;
+  }>();
 </script>
 
 <template>
   <div @click="emit('close')">
-    <section @click.stop="">
+    <section @click.stop="" :class="cappedWidth ? 'medium' : ''">
       <slot></slot>
     </section>
   </div>
@@ -14,7 +22,11 @@ const emit = defineEmits<{
 
 <style scoped lang="scss">
   div {
-    @apply fixed top-0 bottom-0 left-0 right-0 bg-opacity-20 bg-black flex justify-center items-center;
+    @apply fixed top-0 bottom-0 left-0 right-0 bg-opacity-40 bg-slate-800 flex justify-center items-center;
+  }
+
+  .medium {
+    @apply max-w-4xl;
   }
 
   section {
