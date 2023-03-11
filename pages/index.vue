@@ -1,3 +1,3 @@
 <template>
-  <StoryBoardList />
+  <StoryBoardBacklog />
 </template>
