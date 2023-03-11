@@ -24,6 +24,6 @@
   }
 
   li.key {
-    @apply text-gray-600;
+    @apply text-gray-600 ml-1;
   }
 </style>

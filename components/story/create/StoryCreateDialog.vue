@@ -31,7 +31,10 @@
 
 <template>
   <BaseDialog @close="emit('close')">
-    <h2>Create User Story</h2>
+    <header>
+      <h2>Create User Story</h2>
+      <BaseCloseButton class="close-button" @close="emit('close')" />
+    </header>
     <main>
       <StoryCreateInput
         required
@@ -60,6 +63,14 @@
 </template>
 
 <style scoped lang="scss">
+  header {
+    @apply flex content-between;
+  }
+
+  .close-button {
+    @apply float-right;
+  }
+
   main {
     @apply flex flex-col gap-5;
   }
