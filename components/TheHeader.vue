@@ -14,23 +14,31 @@
         <p class="company-name">J7RA</p>
       </li>
       <li>
-        <NuxtLink to="/backlog"><p>Backlog</p></NuxtLink>
+        <NuxtLink to="/backlog" class="nav-item"><p>Backlog</p></NuxtLink>
       </li>
       <li>
-        <NuxtLink to="/kanban"><p>Kanban Board</p></NuxtLink>
+        <NuxtLink to="/kanban" class="nav-item"><p>Kanban Board</p></NuxtLink>
       </li>
-      <li><BaseButton label="Create" @click="" /></li>
+      <li><BaseButton label="Create" @click="emit('create-story')" /></li>
     </ul>
   </nav>
 </template>
 
 <style scoped lang="scss">
   nav {
-    @apply top-0 border-b border-gray-400  h-14;
+    @apply top-0 border-b border-gray-200  h-14;
+  }
+
+  .router-link-active {
+    @apply border-b-[3px] border-blue-600 text-blue-600;
+  }
+
+  .nav-item {
+    @apply flex items-center justify-center h-full w-full;
   }
 
   ul {
-    @apply flex h-full gap-5;
+    @apply flex h-full gap-8;
   }
 
   li {

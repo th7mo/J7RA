@@ -76,7 +76,7 @@
   }
 
   h2 {
-    @apply w-[40vw] text-2xl mb-8;
+    @apply font-medium w-[40vw] text-2xl mb-8;
   }
 
   .button {

@@ -12,8 +12,12 @@
 
 <template>
   <main class="board">
-    <StoryBoardList :stories="stories" title="BACKLOG" />
+    <StoryBoardList :stories="stories" />
   </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .board {
+    @apply max-w-4xl;
+  }
+</style>

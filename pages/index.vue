@@ -1,3 +1,1 @@
-<template>
-  <StoryCreateDialog />
-</template>
+<template></template>
