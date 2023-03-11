@@ -20,7 +20,6 @@
 
   function createUserStory() {
     isCreateUserStoryButtonClicked.value = true;
-    console.log('fefe');
 
     if (isInvalidSummary.value) {
       return;

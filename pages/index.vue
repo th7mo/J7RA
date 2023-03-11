@@ -1,3 +1,3 @@
 <template>
-  <StoryCreateDialog />
+  <StoryBoardList />
 </template>
