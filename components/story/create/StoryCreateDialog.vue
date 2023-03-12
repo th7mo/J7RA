@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
-  import useStoriesService from '~~/composables/useStoriesService';
+  const store = useStoryStore();
 
   const emit = defineEmits<{
     (e: 'close'): void;
@@ -25,7 +25,7 @@
       return;
     }
     emit('close');
-    useStoriesService.postStory(userStory);
+    store.addStory(userStory);
   }
 </script>
 
