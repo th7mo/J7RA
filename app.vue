@@ -3,6 +3,7 @@
   const storyStore = useStoryStore();
 
   function closeEditingDialog() {
+    storyStore.saveStories();
     storyStore.setIsEditingStory(false);
     storyStore.setCurrentStory(undefined);
   }

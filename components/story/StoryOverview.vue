@@ -5,7 +5,7 @@
     story: UserStory;
   }
 
-  defineProps<Props>();
+  const props = defineProps<Props>();
 
   const emit = defineEmits<{
     (e: 'close'): void;
@@ -21,13 +21,19 @@
     <StoryCreateInput v-model="story.summary" borderless class="summary" :rows="1" />
 
     <p class="static-description">Description</p>
-    <StoryCreateTextArea v-model="story.description" borderless class="description" />
+    <StoryCreateTextArea
+      v-model="story.description"
+      borderless
+      class="description"
+      :rows="7"
+      place-holder="You can add a description here!"
+    />
   </BaseDialog>
 </template>
 
 <style scoped lang="scss">
   header {
-    @apply flex justify-between;
+    @apply flex justify-between items-center;
   }
 
   p.story-key {

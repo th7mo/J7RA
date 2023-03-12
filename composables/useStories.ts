@@ -35,6 +35,10 @@ export const useStoryStore = defineStore('stories', {
       this.isEditingStory = isEditingStory;
     },
 
+    saveStories() {
+      useStoriesService.putStories(this.stories);
+    },
+
     getHighestKey() {
       let highestKey = 0;
       for (const story of this.stories) {
