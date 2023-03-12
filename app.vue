@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  const isCreatingStory = ref(false);
   const storyStore = useStoryStore();
 
   function closeEditingDialog() {
@@ -10,8 +9,11 @@
 </script>
 
 <template>
-  <TheHeader @create-story="isCreatingStory = true" />
-  <StoryCreateDialog v-if="isCreatingStory" @close="isCreatingStory = false" />
+  <TheHeader />
+  <StoryCreateDialog
+    v-if="storyStore.getIsCreatingStory"
+    @close="storyStore.setIsCreatingStory(false)"
+  />
   <StoryOverview
     v-if="storyStore.getIsEditingStory && storyStore.getCurrentStory !== undefined"
     :story="storyStore.getCurrentStory"

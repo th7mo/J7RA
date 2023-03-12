@@ -12,7 +12,7 @@
 
 <template>
   <main class="board">
-    <StoryBoardList :stories="stories" />
+    <StoryBoardList :stories="stories" create-row-hidden />
   </main>
 </template>
 

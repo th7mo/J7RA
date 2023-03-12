@@ -5,6 +5,7 @@ export const useStoryStore = defineStore('stories', {
   state: () => ({
     stories: [] as UserStory[],
     isEditingStory: false,
+    isCreatingStory: false,
     currentStory: undefined as UserStory | undefined,
   }),
 
@@ -15,6 +16,10 @@ export const useStoryStore = defineStore('stories', {
 
     getIsEditingStory(state) {
       return state.isEditingStory;
+    },
+
+    getIsCreatingStory(state) {
+      return state.isCreatingStory;
     },
 
     getCurrentStory(state) {
@@ -33,6 +38,10 @@ export const useStoryStore = defineStore('stories', {
 
     setIsEditingStory(isEditingStory: boolean) {
       this.isEditingStory = isEditingStory;
+    },
+
+    setIsCreatingStory(isCreatingStory: boolean) {
+      this.isCreatingStory = isCreatingStory;
     },
 
     saveStories() {

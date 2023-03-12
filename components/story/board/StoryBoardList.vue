@@ -6,15 +6,18 @@
     title?: string;
   }
 
-  defineProps<Props>();
+  const props = defineProps<Props>();
+
+  const isCreateRowHidden = ref(true);
 </script>
 
 <template>
-  <ul class="list">
+  <ul class="list" @mouseenter="isCreateRowHidden = false" @mouseleave="isCreateRowHidden = true">
     <h2 v-if="title">{{ title }}</h2>
     <li v-for="story in stories" :key="story.key" class="individual-story">
       <StoryBoardListItem :story="story" />
     </li>
+    <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
   </ul>
 </template>
 
@@ -29,8 +32,5 @@
 
   .individual-story {
     @apply relative;
-    // &:hover {
-    //   @apply scale-[1.004] duration-100; // <--  THIS BREAKS OPTIONSLIST BECAUSE IT GOES IN AND OUT OF FOCUS SO IT FLICKERS
-    // }
   }
 </style>

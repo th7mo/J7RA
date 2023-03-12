@@ -1,7 +1,5 @@
 <script setup lang="ts">
-  const emit = defineEmits<{
-    (e: 'create-story'): void;
-  }>();
+  const storyStore = useStoryStore();
 </script>
 
 <template>
@@ -19,7 +17,7 @@
       <li>
         <NuxtLink to="/kanban" class="nav-item"><p>Kanban Board</p></NuxtLink>
       </li>
-      <li><BaseButton label="Create" @click="emit('create-story')" /></li>
+      <li><BaseButton label="Create" @click="storyStore.setIsCreatingStory(true)" /></li>
     </ul>
   </nav>
 </template>
