@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div @click="emit('close')">
+  <div @click="emit('close')" class="space-around">
     <section @click.stop="" :class="cappedWidth ? 'medium' : ''">
       <slot></slot>
     </section>
@@ -21,8 +21,8 @@
 </template>
 
 <style scoped lang="scss">
-  div {
-    @apply fixed top-0 bottom-0 left-0 right-0 bg-opacity-40 bg-slate-800 flex justify-center items-center;
+  div.space-around {
+    @apply fixed top-0 bottom-0 left-0 right-0 bg-opacity-40 bg-slate-800 flex justify-center items-center z-50;
   }
 
   .medium {

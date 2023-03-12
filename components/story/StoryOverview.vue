@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <BaseDialog>
+  <BaseDialog @close="emit('close')" capped-width>
     <header>
       <p class="story-key">STORY-{{ story.key }}</p>
       <BaseCloseButton @close="emit('close')" />
@@ -27,7 +27,7 @@
 
 <style scoped lang="scss">
   header {
-    @apply flex justify-between w-[60vw];
+    @apply flex justify-between;
   }
 
   p.story-key {
@@ -35,7 +35,7 @@
   }
 
   .summary {
-    @apply font-medium text-2xl my-7 min-w-full min-h-fit;
+    @apply font-medium text-2xl my-7 min-w-full min-h-fit w-[50rem];
   }
 
   p.static-description {

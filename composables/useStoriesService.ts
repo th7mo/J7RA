@@ -9,8 +9,7 @@ export interface UserStory {
 const FIRESTORE_URL =
   'https://j7ra-2023-default-rtdb.europe-west1.firebasedatabase.app/stories.json';
 
-export default new class {
-
+export default new (class {
   async getAllStories(): Promise<UserStory[]> {
     return axios.get(FIRESTORE_URL).then((response) => {
       const responseObject = response.data;
@@ -26,4 +25,8 @@ export default new class {
   async postStory(story: UserStory) {
     axios.post(FIRESTORE_URL, story);
   }
-}();
+
+  putStories(stories: UserStory[]) {
+    axios.put(FIRESTORE_URL, stories);
+  }
+})();
