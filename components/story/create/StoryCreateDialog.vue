@@ -10,6 +10,7 @@
     key: 1,
     summary: '',
     description: '',
+    progess: 'To Do',
   });
 
   const isInvalidSummary = computed(() => {

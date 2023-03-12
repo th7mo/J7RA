@@ -8,7 +8,6 @@
   const props = defineProps<Props>();
   const isOptionsListShown = ref(false);
 
-
   const displayKey = computed(() => {
     return `STORY-${props.story.key}`;
   });
@@ -26,14 +25,17 @@
   <ul class="list-item">
     <li class="key">{{ displayKey }}</li>
     <li>{{ story.summary }}</li>
-    <BaseEllipsisButton
-      class="ellipsis"
-      @clicked="showOptionsList"
-      @blur="closeOptionsList"
-      tabindex="1"
-    />
+    <li class="first-right-item"><StoryProgressLabel :story="story" /></li>
+    <li>
+      <BaseEllipsisButton @clicked="showOptionsList" @blur="closeOptionsList" tabindex="1" />
+    </li>
   </ul>
-  <StoryBoardListItemOptionsList v-if="isOptionsListShown" :story="story" @show-story-overview="" class="options" />
+  <StoryBoardListItemOptionsList
+    v-if="isOptionsListShown"
+    :story="story"
+    @show-story-overview=""
+    class="options"
+  />
 </template>
 
 <style scoped lang="scss">
@@ -42,14 +44,18 @@
   }
 
   ul.list-item {
-    @apply text-sm flex border-gray-300 border p-2 gap-4 shadow rounded bg-white;
+    @apply text-sm flex items-center border-gray-300  gap-4 shadow rounded bg-white;
+  }
+
+  li {
+    @apply h-full flex items-center justify-center p-2;
   }
 
   li.key {
     @apply text-gray-600 ml-1;
   }
 
-  .ellipsis {
+  .first-right-item {
     @apply ml-auto;
   }
 
