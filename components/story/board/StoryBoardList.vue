@@ -1,12 +1,16 @@
 <script setup lang="ts">
+  import { booleanLiteral } from '@babel/types';
   import { UserStory } from '~~/composables/useStoriesService';
 
   interface Props {
     stories: UserStory[];
     title?: string;
+    kanbanStyle?: boolean;
   }
 
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    kanbanStyle: false,
+  });
 
   const isCreateRowHidden = ref(true);
 </script>
@@ -15,7 +19,7 @@
   <ul class="list" @mouseenter="isCreateRowHidden = false" @mouseleave="isCreateRowHidden = true">
     <h2 v-if="title">{{ title }}</h2>
     <li v-for="story in stories" :key="story.key" class="individual-story">
-      <StoryBoardListItem :story="story" />
+      <StoryBoardListItem :story="story" :kanban-style="kanbanStyle" />
     </li>
     <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
   </ul>

@@ -2,7 +2,7 @@
   <main class="page">
     <article>
       <h2>Kanban</h2>
-      <StoryBoardBacklog class="backlog" />
+      <StoryBoardKanban class="kanban" />
     </article>
   </main>
 </template>
@@ -20,7 +20,7 @@
     @apply font-bold text-5xl mt-16 mb-5 w-full;
   }
 
-  .backlog {
+  .kanban {
     @apply w-full;
   }
 </style>

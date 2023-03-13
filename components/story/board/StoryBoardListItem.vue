@@ -3,9 +3,12 @@
 
   interface Props {
     story: UserStory;
+    kanbanStyle?: boolean;
   }
 
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    kanbanStyle: false,
+  });
   const isOptionsListShown = ref(false);
 
   const displayKey = computed(() => {
@@ -22,11 +25,13 @@
 </script>
 
 <template>
-  <ul class="list-item">
+  <ul :class="kanbanStyle ? 'kanban-style list-item' : 'list-item'">
     <li class="key">{{ displayKey }}</li>
-    <li>{{ story.summary }}</li>
-    <li class="first-right-item"><StoryProgressLabelDropdown :story="story" /></li>
-    <li>
+    <li class="summary">{{ story.summary }}</li>
+    <li v-if="!kanbanStyle" class="first-right-item">
+      <StoryProgressLabelDropdown :story="story" />
+    </li>
+    <li class="ellipsis">
       <BaseEllipsisButton @clicked="showOptionsList" @blur="closeOptionsList" tabindex="1" />
     </li>
   </ul>
@@ -41,6 +46,26 @@
 <style scoped lang="scss">
   ul.list-item {
     @apply text-sm flex items-center border-gray-300 gap-4 shadow rounded bg-white;
+  }
+
+  ul.kanban-style {
+    @apply grid grid-cols-8 gap-0 px-2 py-1;
+
+    & > li.key {
+      @apply col-start-1 col-end-5 row-start-2 row-end-3 justify-start p-0 pl-1 py-2 font-bold text-[0.77rem];
+    }
+
+    & > li.summary {
+      @apply col-span-7 justify-self-start;
+    }
+
+    & > li.ellipsis {
+      @apply ml-auto items-start pt-1;
+    }
+
+    & > li {
+      @apply items-start;
+    }
   }
 
   li {

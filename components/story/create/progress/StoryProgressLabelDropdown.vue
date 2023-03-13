@@ -54,6 +54,10 @@
     }
   }
 
+  p {
+    @apply whitespace-nowrap;
+  }
+
   .dropdown-list {
     @apply top-8 right-0 absolute z-10;
   }
