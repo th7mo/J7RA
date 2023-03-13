@@ -23,7 +23,7 @@
 
 <style scoped lang="scss">
   ul.list {
-    @apply flex flex-col gap-1 bg-gray-50 rounded py-3 px-2;
+    @apply flex flex-col gap-1 bg-gray-100 bg-opacity-80 rounded py-3 px-2;
   }
 
   h2 {

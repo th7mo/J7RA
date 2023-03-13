@@ -33,10 +33,10 @@
   }
 
   li {
-    @apply px-4 py-2 text-sm;
+    @apply px-4 py-2 text-sm border-l-[3px] border-transparent;
 
     &:hover {
-      @apply bg-gray-200 cursor-pointer;
+      @apply bg-gray-200 cursor-pointer border-l-blue-600;
     }
   }
 </style>

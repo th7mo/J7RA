@@ -23,13 +23,13 @@
   <BaseOptionsList>
     <ul class="dropdown-list">
       <li @mousedown.left="saveProgressState('To Do')">
-        <StoryProgressLabel text="To Do" />
+        <StoryProgressLabel text="To Do" gray />
       </li>
       <li @mousedown.left="saveProgressState('In Progress')">
         <StoryProgressLabel text="In Progress" />
       </li>
       <li @mousedown.left="saveProgressState('Done')">
-        <StoryProgressLabel text="Done" />
+        <StoryProgressLabel text="Done" green />
       </li>
     </ul>
   </BaseOptionsList>
