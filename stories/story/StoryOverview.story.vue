@@ -6,6 +6,7 @@
     summary: 'Create a seperate page to submit documents.',
     description:
       'Labore laborum irure consequat reprehenderit deserunt sunt sunt sunt qui consectetur occaecat ullamco adipisicing. Esse occaecat Lorem esse commodo occaecat amet adipisicing consectetur minim esse Lorem elit voluptate. Ad excepteur do do magna. Culpa dolor qui elit elit nulla dolore commodo.',
+    progress: 'To Do',
   };
 </script>
 

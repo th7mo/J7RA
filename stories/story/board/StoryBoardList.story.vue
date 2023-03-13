@@ -6,16 +6,19 @@
       key: 5,
       summary: 'Create new page for filling surveys',
       description: '',
+      progress: 'To Do'
     },
     {
       key: 6,
       summary: 'Remove dead code from application',
       description: '',
+      progress: 'To Do'
     },
     {
       key: 15,
       summary: '',
       description: '',
+      progress: 'To Do'
     },
   ];
   const oneStory: UserStory[] = [
@@ -23,6 +26,7 @@
       key: 514,
       summary: 'Create new page for filling surveys',
       description: 'With a description that will not be showeed',
+      progress: 'To Do'
     },
   ];
 
@@ -31,11 +35,13 @@
       key: 888,
       summary: 'The one below has an empty summary',
       description: 'With a description that will not be showeed',
+      progress: 'To Do'
     },
     {
       key: 915,
       summary: '',
       description: 'With a description that will not be showeed',
+      progress: 'To Do'
     },
   ];
 </script>
@@ -68,7 +74,7 @@
 
     <Variant title="List with item without summary">
       <Suspense>
-        <StoryBoardList :stories="storiesWithoutSummary" title="IN PROGESS | 1 ISSUE" />
+        <StoryBoardList :stories="storiesWithoutSummary" title="IN PROGRESS | 1 ISSUE" />
       </Suspense>
     </Variant>
   </Story>

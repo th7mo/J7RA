@@ -4,7 +4,7 @@ export interface UserStory {
   key: number;
   summary: string;
   description: string;
-  progess: string;
+  progress: string;
 }
 
 const FIRESTORE_URL =

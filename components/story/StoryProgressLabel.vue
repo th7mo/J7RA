@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <p>{{ story.progess }}</p>
+  <p>{{ story.progress }}</p>
 </template>
 
 <style scoped lang="scss">

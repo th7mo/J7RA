@@ -6,6 +6,7 @@
       key: 514,
       summary: 'Create new page for filling surveys',
       description: 'With a description that will not be showeed',
+      progress: 'To Do'
     },
   ];
 
@@ -13,7 +14,8 @@
     {
       key: -1,
       summary: 'Create new page for filling surveys',
-      description: 'With a description that will not be showeed',
+      description: 'With a description that will not be showed',
+      progress: 'To Do'
     },
   ];
 </script>
