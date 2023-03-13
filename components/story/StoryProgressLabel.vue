@@ -9,11 +9,18 @@
 </script>
 
 <template>
-  <p>{{ story.progress }}</p>
+  <ul>
+    <p>{{ story.progress }}</p>
+    <BaseDropdown color="#2563EB" class="dropdown"/>
+  </ul>
 </template>
 
 <style scoped lang="scss">
-  p {
-    @apply font-bold bg-blue-200 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem];
+  ul {
+    @apply flex items-center font-bold bg-blue-200 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem];
+  }
+
+  .dropdown {
+    @apply text-red-500;
   }
 </style>

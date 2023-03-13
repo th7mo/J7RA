@@ -37,7 +37,7 @@
 
 <style scoped lang="scss">
   header {
-    @apply flex items-center gap-7;
+    @apply flex items-center gap-7 ml-3 text-sm;
   }
 
   .summary {
@@ -45,11 +45,11 @@
   }
 
   p.static-description {
-    @apply font-semibold pl-2 mb-2;
+    @apply font-semibold text-sm ml-[0.62rem] mb-1;
   }
 
   .description {
-    @apply max-w-2xl text-gray-700;
+    @apply max-w-2xl text-sm marker:ml-1 text-gray-700;
   }
 
   .close-button {
