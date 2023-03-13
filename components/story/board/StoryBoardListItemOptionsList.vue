@@ -21,8 +21,8 @@
 <template>
   <BaseOptionsList>
     <ul>
-      <li @mousedown="showStoryOverview">Edit</li>
-      <li @mousedown="deleteCurrentStory">Delete</li>
+      <li @mousedown.left="showStoryOverview">Edit</li>
+      <li @mousedown.left="deleteCurrentStory">Delete</li>
     </ul>
   </BaseOptionsList>
 </template>

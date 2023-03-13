@@ -25,7 +25,7 @@
   <ul class="list-item">
     <li class="key">{{ displayKey }}</li>
     <li>{{ story.summary }}</li>
-    <li class="first-right-item"><StoryProgressLabel :story="story" /></li>
+    <li class="first-right-item"><StoryProgressLabelDropdown :story="story" /></li>
     <li>
       <BaseEllipsisButton @clicked="showOptionsList" @blur="closeOptionsList" tabindex="1" />
     </li>
@@ -39,12 +39,8 @@
 </template>
 
 <style scoped lang="scss">
-  .container {
-    @apply relative;
-  }
-
   ul.list-item {
-    @apply text-sm flex items-center border-gray-300  gap-4 shadow rounded bg-white;
+    @apply text-sm flex items-center border-gray-300 gap-4 shadow rounded bg-white;
   }
 
   li {

@@ -16,8 +16,8 @@
   <BaseDialog @close="emit('close')" capped-width>
     <header>
       <p class="story-key">STORY-{{ story.key }}</p>
-      <StoryProgressLabel :story="story"/>
-      <BaseCloseButton @close="emit('close')" class="close-button"/>
+      <StoryProgressLabelDropdown :story="story" />
+      <BaseCloseButton @close="emit('close')" class="close-button" />
     </header>
     <StoryCreateInput v-model="story.summary" borderless class="summary" :rows="1" />
 

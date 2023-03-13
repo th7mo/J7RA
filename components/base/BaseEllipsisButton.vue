@@ -19,7 +19,7 @@
     }
 
     &:hover {
-      @apply bg-gray-100 duration-100;
+      @apply bg-gray-100 duration-100 cursor-pointer;
     }
   }
 </style>
