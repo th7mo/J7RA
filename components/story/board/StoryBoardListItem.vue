@@ -69,11 +69,11 @@
       }
 
       &.summary {
-        @apply col-span-7 justify-self-start;
+        @apply col-span-7 justify-self-start pt-1 pl-1;
       }
 
       &.ellipsis {
-        @apply ml-auto items-start pt-1;
+        @apply pt-1;
       }
     }
   }
@@ -92,6 +92,10 @@
     &.progress {
       @apply justify-self-end;
     }
+
+    &.ellipsis {
+        @apply pl-3;
+      }
 
     &.key {
       @apply text-gray-600 justify-self-start;

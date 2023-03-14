@@ -48,6 +48,18 @@ export const useStoryStore = defineStore('stories', {
       useStoriesService.putStories(this.stories);
     },
 
+    getTodoStories() {
+      return this.stories.filter(story => story.progress === 'To Do');
+    },
+
+    getInProgressStories() {
+      return this.stories.filter(story => story.progress === 'In Progress');
+    },
+
+    getDoneStories() {
+      return this.stories.filter(story => story.progress === 'Done');
+    },
+
     getHighestKey() {
       let highestKey = 0;
       for (const story of this.stories) {
