@@ -11,23 +11,23 @@
 <template>
   <BaseDialog @close="emit('close')" capped-width>
     <header class="flex items-center gap-7 ml-3 text-sm">
-      <p class="story-key">STORY-{{ story.key }}</p>
+      <p>STORY-{{ story.key }}</p>
       <StoryProgressLabelDropdown :story="story" />
-      <BaseCloseButton @close="emit('close')" class="ml-auto" />
+      <BaseCloseButton class="ml-auto" @close="emit('close')" />
     </header>
-    
+
     <StoryCreateInput
+      class="font-medium text-2xl my-7 min-w-full min-h-fit w-[50rem]"
       v-model="story.summary"
       borderless
-      class="font-medium text-2xl my-7 min-w-full min-h-fit w-[50rem]"
       :rows="1"
     />
     <p class="font-semibold text-sm ml-[0.62rem] mb-1">Description</p>
 
     <StoryCreateTextArea
+      class="max-w-2xl text-sm marker:ml-1 text-gray-700"
       v-model="story.description"
       borderless
-      class="max-w-2xl text-sm marker:ml-1 text-gray-700"
       :rows="7"
       place-holder="You can add a description here!"
     />

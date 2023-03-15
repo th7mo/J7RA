@@ -8,7 +8,7 @@
   <li class="h-full">
     <NuxtLink
       :to="`/${to}`"
-      class="flex items-center justify-center h-full border-y-[3px] border-transparent px-1"
+      class="grid place-items-center h-full border-y-[3px] border-transparent px-1"
       >{{ to[0].toUpperCase() + to.slice(1) }}
     </NuxtLink>
   </li>

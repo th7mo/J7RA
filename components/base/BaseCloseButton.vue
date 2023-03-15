@@ -4,7 +4,7 @@
 
 <template>
   <figure
-    class="w-9 h-9 p-2 flex items-center justify-center rounded-sm duration-100 hover:bg-gray-100 hover:cursor-pointer"
+    class="w-9 h-9 grid place-items-center rounded-sm duration-100 hover:bg-gray-100 hover:cursor-pointer"
     @click="emit('close')"
   >
     <img class="h-7 w-7" src="~~/assets/icons/xmark-solid.svg" />

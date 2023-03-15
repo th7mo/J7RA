@@ -42,7 +42,7 @@
   }
 
   figure {
-    @apply w-3 h-3 flex items-center justify-center rounded-sm mx-2;
+    @apply w-3 h-3 grid place-items-center rounded-sm mx-2;
 
     img {
       @apply w-3 h-3;

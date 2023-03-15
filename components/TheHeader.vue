@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <nav class="top-0 border-b border-gray-200 h-14 select-none">
-    <ul class="flex h-full gap-6 items-center">
-      <li class="flex h-full items-center">
+  <nav class="top-0 border-b border-gray-200 select-none">
+    <ul class="flex h-14 gap-6 items-center">
+      <li class="flex items-center">
         <figure class="ml-8 w-8 h-8">
           <img src="~~/assets/img/logo.png" alt="Logo" />
         </figure>

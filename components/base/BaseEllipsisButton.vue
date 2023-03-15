@@ -12,7 +12,7 @@
 
 <style scoped lang="scss">
   figure {
-    @apply w-6 h-6 flex items-center justify-center rounded-sm;
+    @apply w-6 h-6 grid place-items-center rounded-sm;
 
     img {
       @apply w-5 h-5;
