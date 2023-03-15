@@ -59,7 +59,7 @@
   }
 
   .dropdown-list {
-    @apply top-8 right-0 absolute z-10;
+    @apply top-8 right-0 absolute z-40;
   }
 
   .gray {

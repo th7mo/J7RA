@@ -5,11 +5,13 @@
     story: UserStory;
     kanbanStyle?: boolean;
     disabled?: boolean;
+    draggable?: boolean;
   }
 
   const props = withDefaults(defineProps<Props>(), {
     kanbanStyle: false,
     disabled: false,
+    draggable: false,
   });
 
   const isOptionsListShown = ref(false);
@@ -92,7 +94,7 @@
 
 <style scoped lang="scss">
   ul.list-item {
-    @apply text-sm grid items-center border-y-gray-300 shadow rounded bg-white py-2 px-3 gap-3 select-none z-10 relative;
+    @apply text-sm grid items-center border-y-gray-300 shadow rounded bg-white py-2 px-3 gap-3 select-none relative;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr auto;
 
     &:hover {
@@ -149,10 +151,10 @@
   }
 
   .options {
-    @apply top-11 right-2 absolute z-10;
+    @apply top-11 right-2 absolute z-50;
   }
 
   ul.top {
-    @apply z-50;
+    @apply z-20;
   }
 </style>
