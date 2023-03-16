@@ -5,6 +5,8 @@ export interface UserStory {
   summary: string;
   description: string;
   progress: string;
+  points?: number;
+  assignee?: string;
 }
 
 const FIRESTORE_URL =

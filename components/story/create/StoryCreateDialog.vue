@@ -11,6 +11,8 @@
     summary: '',
     description: '',
     progress: 'To Do',
+    points: undefined,
+    assignee: undefined,
   });
 
   const isInvalidSummary = computed(() => {
@@ -49,6 +51,7 @@
         v-model="userStory.description"
         class="description"
       />
+      <StoryCreateInput label-text="Assignee" v-model="userStory.assignee" />
 
       <section>
         <BaseButton @click="createUserStory" class="button" label="Create" />

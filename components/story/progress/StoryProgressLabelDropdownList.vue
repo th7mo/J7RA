@@ -1,11 +1,9 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
 
-  interface Props {
+  const props = defineProps<{
     story: UserStory;
-  }
-
-  const props = defineProps<Props>();
+  }>();
 
   const emit = defineEmits(['option-clicked']);
   const store = useStoryStore();

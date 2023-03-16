@@ -1,17 +1,11 @@
 <script setup lang="ts">
-  interface Props {
+  defineProps<{
     labelText?: string;
     modelValue?: string;
     required?: boolean;
     error?: boolean;
     borderless?: boolean;
-  }
-
-  withDefaults(defineProps<Props>(), {
-    required: false,
-    error: false,
-    borderless: false,
-  });
+  }>();
 
   const emit = defineEmits<{
     (e: 'update:modelValue', value: string): void;
@@ -25,30 +19,9 @@
       @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       type="text"
       :value="modelValue"
-      :class="error ? 'error' : borderless ? 'borderless' : ''"
+      :class="`block outline-none border-gray-200 border-2 rounded-sm w-full hover:bg-gray-100 focus:border-blue-500 focus:border-solid focus:bg-transparent pl-1 ${
+        error ? 'border-red-500 border-2' : ''
+      } ${borderless ? 'border-transparent p-2' : ''}`"
     />
   </section>
 </template>
-
-<style scoped lang="scss">
-  input {
-    @apply block outline-none border-gray-200 border-2 rounded-sm p-1 w-full;
-
-    &.borderless {
-      @apply border-transparent p-2;
-
-      &:hover {
-        @apply bg-gray-100;
-      }
-    }
-
-    &:focus,
-    &.borderless:focus {
-      @apply border-blue-500 border-solid bg-transparent;
-    }
-
-    &.error {
-      @apply border-red-500 border-2;
-    }
-  }
-</style>

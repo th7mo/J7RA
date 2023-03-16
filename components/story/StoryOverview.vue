@@ -9,27 +9,33 @@
 </script>
 
 <template>
-  <BaseDialog @click="emit('close')" capped-width>
-    <header class="flex items-center gap-7 ml-3 text-sm">
-      <p>STORY-{{ story.key }}</p>
-      <StoryProgressLabelDropdown :story="story" />
-      <BaseCloseButton class="ml-auto" @click="emit('close')" />
-    </header>
+  <BaseDialog @click="emit('close')">
+    <ul class="grid grid-cols-5 gap-5">
+      <header class="flex items-center gap-7 ml-3 text-sm col-span-5">
+        <p>STORY-{{ story.key }}</p>
+        <StoryProgressLabelDropdown :story="story" />
+        <BaseCloseButton class="ml-auto" @click="emit('close')" />
+      </header>
 
-    <StoryCreateInput
-      class="font-medium text-2xl my-7 min-w-full min-h-fit w-[50rem]"
-      v-model="story.summary"
-      borderless
-      :rows="1"
-    />
-    <p class="font-semibold text-sm ml-[0.62rem] mb-1">Description</p>
+      <StoryCreateInput
+        class="font-medium text-2xl min-w-full mb-3 pl-1 min-h-fit w-[50rem] col-span-5"
+        v-model="story.summary"
+        borderless
+        :rows="1"
+      />
 
-    <StoryCreateTextArea
-      class="max-w-2xl text-sm marker:ml-1 text-gray-700"
-      v-model="story.description"
-      borderless
-      :rows="7"
-      place-holder="You can add a description here!"
-    />
+      <li class="col-span-3">
+        <p class="font-semibold text-sm ml-[0.62rem] mb-1 pt-4">Description</p>
+
+        <StoryCreateTextArea
+          class="text-sm marker:ml-1 text-gray-700"
+          v-model="story.description"
+          borderless
+          :rows="7"
+          place-holder="You can add a description here!"
+        />
+      </li>
+      <StoryOverviewDetails :story="story" class="col-span-2" />
+    </ul>
   </BaseDialog>
 </template>
