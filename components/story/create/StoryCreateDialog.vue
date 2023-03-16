@@ -11,6 +11,7 @@
     summary: '',
     description: '',
     progress: 'To Do',
+    created: '',
     points: undefined,
     assignee: undefined,
   });
@@ -28,7 +29,20 @@
       return;
     }
     emit('close');
+    userStory.created = getCurrentDateString();
     store.addStory(userStory);
+  }
+
+  function getCurrentDateString() {
+    const currentDate = new Date();
+    const day = currentDate.getDay().toString();
+    const month = currentDate.getMonth().toString();
+    const year = currentDate.getFullYear().toString();
+    const hour = currentDate.getHours().toString();
+    const minutes = currentDate.getMinutes().toString();
+    return `${day.length < 2 ? '0' : ''}${day}-${month.length < 2 ? '0' : ''}${month}-${year} ${
+      hour.length < 2 ? '0' : ''
+    }${hour}:${minutes.length < 2 ? '0' : ''}${minutes}`;
   }
 </script>
 

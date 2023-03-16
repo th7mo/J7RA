@@ -5,6 +5,7 @@ export interface UserStory {
   summary: string;
   description: string;
   progress: string;
+  created: string;
   points?: number;
   assignee?: string;
 }

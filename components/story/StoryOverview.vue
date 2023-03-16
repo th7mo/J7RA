@@ -10,7 +10,7 @@
 
 <template>
   <BaseDialog @click="emit('close')">
-    <ul class="grid grid-cols-5 gap-5">
+    <ul class="grid grid-cols-5 gap-5 w-full max-w-4xl">
       <header class="flex items-center gap-7 ml-3 text-sm col-span-5">
         <p>STORY-{{ story.key }}</p>
         <StoryProgressLabelDropdown :story="story" />

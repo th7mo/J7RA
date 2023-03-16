@@ -5,6 +5,7 @@
     required?: boolean;
     error?: boolean;
     borderless?: boolean;
+    placeholder?: string;
   }>();
 
   const emit = defineEmits<{
@@ -22,6 +23,7 @@
       :class="`block outline-none border-gray-200 border-2 py-1 rounded-sm w-full hover:bg-gray-100 focus:border-blue-500 focus:border-solid focus:bg-transparent pl-1 ${
         error ? 'border-red-500 border-2' : ''
       } ${borderless ? 'border-transparent p-2' : ''}`"
+      :placeholder="placeholder"
     />
   </section>
 </template>
