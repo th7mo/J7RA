@@ -18,13 +18,9 @@
   >
     <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2">{{ title }}</h2>
     <ul class="flex flex-col gap-1">
-      <StoryBoardListItem
-        v-for="story in stories"
-        :key="story.key"
-        class="relative"
-        :story="story"
-        :kanban-style="kanbanStyle"
-      />
+      <BaseDraggable v-for="story in stories" :id="story.key">
+        <StoryBoardListItem :key="story.key" :story="story" :kanban-style="kanbanStyle" :id="story.key" />
+      </BaseDraggable>
       <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
     </ul>
   </section>

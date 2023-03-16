@@ -28,7 +28,6 @@
   });
 
   function closeDropdown() {
-    console.log('closeing');
     isDropdownShown.value = false;
   }
 </script>

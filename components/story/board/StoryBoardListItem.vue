@@ -4,62 +4,25 @@
   const props = defineProps<{
     story: UserStory;
     kanbanStyle?: boolean;
-    disabled?: boolean;
-    draggable?: boolean;
   }>();
-
-  const isOptionsListShown = ref(false);
-  const draggable = ref(false);
 
   const displayKey = computed(() => {
     return `STORY-${props.story.key}`;
   });
 
   const storyStore = useStoryStore();
-  const element = ref();
-
-  onMounted(() => {
-    element.value = document.getElementById(`list-card${props.story.key}`);
-  });
 
   function showStoryOverview() {
     storyStore.setCurrentStory(props.story);
     storyStore.setIsEditingStory(true);
   }
-
-  const initX = ref(0);
-  const initY = ref(0);
-
-  function setDraggable(event: any) {
-    draggable.value = true;
-    initX.value = event.screenX;
-    initY.value = event.screenY;
-  }
-
-  function moveElement(event: any) {
-    if (draggable.value === false) {
-      return;
-    }
-    const diffX = event.screenX - initX.value;
-    const diffY = event.screenY - initY.value;
-    element.value.style.transform = `translate(${diffX}px, ${diffY}px)`;
-  }
-
-  function stopMovingElement() {
-    element.value.style.transform = '';
-    draggable.value = false;
-  }
 </script>
 
 <template>
   <li
-    :id="'list-card' + story.key"
     :class="`text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative hover:cursor-pointer ${
       props.kanbanStyle ? 'px-2 py-1 ' : 'py-2 px-3'
-    } ${draggable ? 'z-20' : ''}`"
-    @mousedown="setDraggable"
-    @mousemove="moveElement"
-    @mouseup="stopMovingElement"
+    }`"
   >
     <p
       :class="`text-gray-600 hover:cursor-pointer hover:underline ${
