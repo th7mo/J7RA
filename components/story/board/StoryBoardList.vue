@@ -1,39 +1,31 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
 
-  interface Props {
+  defineProps<{
     stories: UserStory[];
     title?: string;
     kanbanStyle?: boolean;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
-    kanbanStyle: false,
-  });
+  }>();
 
   const isCreateRowHidden = ref(true);
 </script>
 
 <template>
-  <ul class="list" @mouseenter="isCreateRowHidden = false" @mouseleave="isCreateRowHidden = true">
-    <h2 v-if="title">{{ title }}</h2>
-    <li v-for="story in stories" :key="story.key" class="individual-story">
-      <StoryBoardListItem :story="story" :kanban-style="kanbanStyle" />
-    </li>
-    <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
-  </ul>
+  <section
+    class="bg-gray-100 bg-opacity-80 rounded py-3 px-2"
+    @mouseenter="isCreateRowHidden = false"
+    @mouseleave="isCreateRowHidden = true"
+  >
+    <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2">{{ title }}</h2>
+    <ul class="flex flex-col gap-1">
+      <StoryBoardListItem
+        v-for="story in stories"
+        :key="story.key"
+        class="relative"
+        :story="story"
+        :kanban-style="kanbanStyle"
+      />
+      <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
+    </ul>
+  </section>
 </template>
-
-<style scoped lang="scss">
-  ul.list {
-    @apply flex flex-col gap-1 bg-gray-100 bg-opacity-80 rounded py-3 px-2;
-  }
-
-  h2 {
-    @apply text-base text-slate-700 font-light ml-1 mb-2;
-  }
-
-  .individual-story {
-    @apply relative;
-  }
-</style>

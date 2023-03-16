@@ -1,6 +1,10 @@
 <script setup lang="ts">
   const storyStore = useStoryStore();
 
+  onBeforeMount(() => {
+    storyStore.fetchStories();
+  });
+
   function closeEditingDialog() {
     storyStore.saveStories();
     storyStore.setIsEditingStory(false);
@@ -19,13 +23,5 @@
     :story="storyStore.getCurrentStory"
     @close="closeEditingDialog"
   />
-  <main class="page">
-    <NuxtPage />
-  </main>
+  <NuxtPage class="px-10"/>
 </template>
-
-<style scoped lang="scss">
-  main.page {
-    @apply mx-10;
-  }
-</style>

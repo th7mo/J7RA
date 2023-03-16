@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useStoryStore } from '@/composables/useStories';
-  import { UserStory } from '~~/composables/useStoriesService';
   const store = useStoryStore();
+  
   const todoStories = computed(() => {
     return store.getTodoStories();
   });
@@ -37,14 +37,9 @@
 </script>
 
 <template>
-  <ul class="board">
+  <ul class="max-w-4xl grid grid-cols-3 gap-4">
     <li ref="todo">
-      <StoryBoardList
-        :stories="todoStories"
-        create-row-hidden
-        title="To Do"
-        kanban-style
-      />
+      <StoryBoardList :stories="todoStories" create-row-hidden title="To Do" kanban-style />
     </li>
     <li ref="progress">
       <StoryBoardList
@@ -59,9 +54,3 @@
     </li>
   </ul>
 </template>
-
-<style scoped lang="scss">
-  .board {
-    @apply max-w-4xl grid grid-cols-3 gap-4;
-  }
-</style>

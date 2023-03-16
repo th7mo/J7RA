@@ -1,18 +1,12 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
 
-  interface Props {
+  const props = defineProps<{
     story: UserStory;
     kanbanStyle?: boolean;
     disabled?: boolean;
     draggable?: boolean;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
-    kanbanStyle: false,
-    disabled: false,
-    draggable: false,
-  });
+  }>();
 
   const isOptionsListShown = ref(false);
   const draggable = ref(false);
@@ -20,14 +14,6 @@
   const displayKey = computed(() => {
     return `STORY-${props.story.key}`;
   });
-
-  function closeOptionsList() {
-    isOptionsListShown.value = false;
-  }
-
-  function showOptionsList() {
-    isOptionsListShown.value = true;
-  }
 
   const storyStore = useStoryStore();
   const element = ref();
@@ -60,101 +46,44 @@
   }
 
   function stopMovingElement() {
-    element.value.style.transform = 'translate(0, 0)';
+    element.value.style.transform = '';
     draggable.value = false;
   }
 </script>
 
 <template>
-  <ul
+  <li
     :id="'list-card' + story.key"
-    :class="`list-item ${props.kanbanStyle ? 'kanban-style' : ''} ${draggable ? 'top' : ''}`"
+    :class="`text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative hover:cursor-pointer ${
+      props.kanbanStyle ? 'px-2 py-1 ' : 'py-2 px-3'
+    } ${draggable ? 'z-20' : ''}`"
     @mousedown="setDraggable"
     @mousemove="moveElement"
     @mouseup="stopMovingElement"
   >
-    <li :class="story.progress === 'Done' ? 'done key' : 'key'" @click="showStoryOverview">
+    <p
+      :class="`text-gray-600 hover:cursor-pointer hover:underline ${
+        props.kanbanStyle
+          ? 'col-start-1 col-end-5 row-start-2 row-end-3 justify-start p-0 pl-1 py-2 font-bold text-[0.77rem]'
+          : ''
+      }
+      ${story.progress === 'Done' ? 'line-through' : ''}`"
+      @click="showStoryOverview"
+    >
       {{ displayKey }}
-    </li>
-    <li class="summary">{{ story.summary }}</li>
-    <li v-if="!kanbanStyle" class="progress">
-      <StoryProgressLabelDropdown :story="story" />
-    </li>
-    <li class="ellipsis">
-      <BaseEllipsisButton @clicked="showOptionsList" @blur="closeOptionsList" tabindex="1" />
-    </li>
-  </ul>
-  <StoryBoardListItemOptionsList
-    v-if="isOptionsListShown"
-    :story="story"
-    @show-story-overview=""
-    class="options"
-  />
+    </p>
+
+    <h2 :class="`justify-self-start ${props.kanbanStyle ? 'col-span-7 pt-1 pl-1' : 'col-span-5'}`">
+      {{ story.summary }}
+    </h2>
+
+    <StoryProgressLabelDropdown class="justify-self-end" v-if="!kanbanStyle" :story="story" />
+    <StoryBoardListItemOptions :story="story" :class="`${kanbanStyle ? 'self-start mt-1' : ''}`" />
+  </li>
 </template>
 
 <style scoped lang="scss">
-  ul.list-item {
-    @apply text-sm grid items-center border-y-gray-300 shadow rounded bg-white py-2 px-3 gap-3 select-none relative;
+  li {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr auto;
-
-    &:hover {
-      @apply cursor-pointer;
-    }
-
-    & > li {
-      @apply h-full flex items-center justify-center;
-
-      &.summary {
-        @apply col-span-5 justify-self-start;
-      }
-
-      &.done {
-        @apply line-through;
-      }
-
-      &.progress {
-        @apply justify-self-end;
-      }
-
-      &.ellipsis {
-        @apply pl-3;
-      }
-
-      &.key {
-        @apply text-gray-600 justify-self-start;
-
-        &:hover {
-          @apply cursor-pointer underline;
-        }
-      }
-    }
-  }
-
-  ul.kanban-style {
-    @apply px-2 py-1;
-
-    & > li {
-      @apply items-start;
-
-      &.key {
-        @apply col-start-1 col-end-5 row-start-2 row-end-3 justify-start p-0 pl-1 py-2 font-bold text-[0.77rem];
-      }
-
-      &.summary {
-        @apply col-span-7 justify-self-start pt-1 pl-1;
-      }
-
-      &.ellipsis {
-        @apply pt-1;
-      }
-    }
-  }
-
-  .options {
-    @apply top-11 right-2 absolute z-50;
-  }
-
-  ul.top {
-    @apply z-20;
   }
 </style>

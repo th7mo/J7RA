@@ -7,9 +7,7 @@
 
   const props = defineProps<Props>();
 
-  const emit = defineEmits<{
-    (e: 'option-clicked'): void;
-  }>();
+  const emit = defineEmits(['option-clicked']);
   const store = useStoryStore();
 
   function saveProgressState(progress: string) {
@@ -21,30 +19,25 @@
 
 <template>
   <BaseOptionsList>
-    <ul class="dropdown-list">
-      <li @mousedown.left="saveProgressState('To Do')">
+    <ul class="w-full py-1 z-50">
+      <li
+        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
+        @mousedown.left="saveProgressState('To Do')"
+      >
         <StoryProgressLabel text="To Do" gray />
       </li>
-      <li @mousedown.left="saveProgressState('In Progress')">
+      <li
+        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
+        @mousedown.left="saveProgressState('In Progress')"
+      >
         <StoryProgressLabel text="In Progress" />
       </li>
-      <li @mousedown.left="saveProgressState('Done')">
+      <li
+        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
+        @mousedown.left="saveProgressState('Done')"
+      >
         <StoryProgressLabel text="Done" green />
       </li>
     </ul>
   </BaseOptionsList>
 </template>
-
-<style scoped lang="scss">
-  ul.dropdown-list {
-    @apply w-full py-1;
-
-    & > li {
-      @apply py-1 pl-3 pr-20 border-l-[3px] border-transparent;
-
-      &:hover {
-        @apply bg-gray-200 border-l-blue-600;
-      }
-    }
-  }
-</style>

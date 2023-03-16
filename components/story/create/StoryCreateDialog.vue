@@ -31,10 +31,10 @@
 </script>
 
 <template>
-  <BaseDialog @close="emit('close')" capped-width>
+  <BaseDialog @click="emit('close')" capped-width>
     <header>
       <h2>Create User Story</h2>
-      <BaseCloseButton class="close-button" @close="emit('close')" />
+      <BaseCloseButton class="close-button" @click="emit('close')" />
     </header>
     <main>
       <StoryCreateInput

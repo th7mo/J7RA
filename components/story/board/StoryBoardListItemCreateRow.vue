@@ -1,51 +1,20 @@
 <script setup lang="ts">
-  interface Props {
+  defineProps<{
     hidden?: boolean;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
-    hidden: false,
-  });
+  }>();
   const storyStore = useStoryStore();
 </script>
 
 <template>
-  <ul @click="storyStore.setIsCreatingStory(true)" :class="hidden ? 'hidden' : ''">
-    <li>
-      <figure>
-        <img src="~~/assets/icons/plus-solid.svg" />
-      </figure>
-    </li>
-    <li>Create Story</li>
-  </ul>
+  <li
+    :class="`select-none hover:cursor-pointer ${
+      hidden
+        ? 'opacity-0 hover:opacity-100'
+        : 'w-full flex items-center p-1 rounded py-2 hover:bg-gray-200 hover:bg-opacity-70'
+    }`"
+    @click="storyStore.setIsCreatingStory(true)"
+  >
+    <BasePlusButton />
+    <p class="text-sm">Create Story</p>
+  </li>
 </template>
-
-<style scoped lang="scss">
-  .hidden {
-    @apply opacity-0;
-
-    &:hover {
-      @apply opacity-100;
-    }
-  }
-
-  ul {
-    @apply w-full flex items-center p-1 rounded py-2;
-
-    &:hover {
-      @apply bg-gray-200 bg-opacity-70;
-    }
-  }
-
-  li {
-    @apply text-sm;
-  }
-
-  figure {
-    @apply w-3 h-3 grid place-items-center rounded-sm mx-2;
-
-    img {
-      @apply w-3 h-3;
-    }
-  }
-</style>

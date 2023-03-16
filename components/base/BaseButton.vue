@@ -2,7 +2,6 @@
   defineProps<{
     label: string;
     transparent?: boolean;
-    disabled?: boolean;
   }>();
 </script>
 
@@ -14,7 +13,6 @@
           ? 'bg-transparent text-gray-700 hover:bg-transparent hover:underline disabled:text-gray-300 disabled:hover:no-underline'
           : 'bg-blue-600 text-white hover:bg-blue-500 disabled:bg-gray-300'
       }`"
-    :disabled="disabled"
   >
     {{ label }}
   </button>

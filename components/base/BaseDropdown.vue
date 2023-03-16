@@ -1,14 +1,12 @@
 <script setup lang="ts">
-  interface Props {
+  defineProps<{
     color: string;
-  }
-
-  defineProps<Props>();
+  }>();
 </script>
 
 <template>
-  <figure>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+  <figure class="grid place-items-center w-5 h-5">
+    <svg class="h-4 w-4 block ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
       <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
       <path
         :fill="color"
@@ -17,13 +15,3 @@
     </svg>
   </figure>
 </template>
-
-<style scoped lang="scss">
-  figure {
-    @apply grid place-items-center w-5 h-5;
-  }
-
-  svg {
-    @apply h-4 w-4 block ml-1;
-  }
-</style>

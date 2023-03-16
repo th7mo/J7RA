@@ -1,26 +1,8 @@
 <template>
-  <main class="page">
-    <article>
-      <h2>Backlog</h2>
-      <StoryBoardBacklog class="backlog" />
+  <main class="flex items-center flex-col">
+    <article class="max-w-3xl w-full">
+      <h1 class="font-bold text-5xl pt-16 pb-5 w-full">Backlog</h1>
+      <StoryBoardBacklog />
     </article>
   </main>
 </template>
-
-<style scoped lang="scss">
-  .page {
-    @apply flex items-center flex-col w-full;
-  }
-
-  article {
-    @apply w-full max-w-4xl;
-  }
-
-  h2 {
-    @apply font-bold text-5xl mt-16 mb-5 w-full;
-  }
-
-  .backlog {
-    @apply w-full;
-  }
-</style>

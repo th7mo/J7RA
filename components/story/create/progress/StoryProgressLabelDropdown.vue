@@ -11,9 +11,9 @@
 
   const computedColor = computed(() => {
     if (props.story.progress === 'To Do') {
-      return 'gray';
+      return 'text-gray-500 bg-gray-200 bg-opacity-70';
     } else if (props.story.progress === 'Done') {
-      return 'green';
+      return 'text-green-600 bg-green-100';
     }
     return '';
   });
@@ -28,45 +28,25 @@
   });
 
   function closeDropdown() {
+    console.log('closeing');
     isDropdownShown.value = false;
   }
 </script>
 
 <template>
-  <ul @click="isDropdownShown = true" @blur="closeDropdown" tabindex="1" :class="computedColor">
-    <p>{{ story.progress }}</p>
+  <button
+    @click="isDropdownShown = true"
+    @blur="closeDropdown"
+    tabindex="1"
+    :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] relative hover:cursor-pointer ${computedColor}`"
+  >
+    <span class="whitespace-nowrap">{{ story.progress }}</span>
     <BaseDropdown :color="computedColorHex" />
     <StoryProgressLabelDropdownList
+      class="top-8 right-0 absolute z-50"
       :story="story"
       v-if="isDropdownShown"
-      class="dropdown-list"
       @option-clicked="closeDropdown"
     />
-  </ul>
+  </button>
 </template>
-
-<style scoped lang="scss">
-  ul {
-    @apply flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] relative;
-
-    &:hover {
-      @apply cursor-pointer;
-    }
-  }
-
-  p {
-    @apply whitespace-nowrap;
-  }
-
-  .dropdown-list {
-    @apply top-8 right-0 absolute z-40;
-  }
-
-  .gray {
-    @apply text-gray-500 bg-gray-200 bg-opacity-70;
-  }
-
-  .green {
-    @apply text-green-600 bg-green-100;
-  }
-</style>

@@ -1,26 +1,13 @@
 <script setup lang="ts">
-interface Props {
-  labelText: string
-  required?: boolean
-}
-
-withDefaults(defineProps<Props>(), {
-  required: false
-})
-
+  defineProps<{
+    labelText: string;
+    required?: boolean;
+  }>();
 </script>
 
 <template>
-  <p>{{ labelText }} <span>{{ required ? '*' : '' }}</span></p>
+  <p class="text-sm text-gray-600 pl-0.5">
+    {{ labelText }} <span class="text-red-600 font-bold" v-if="required">*</span>
+  </p>
   <slot></slot>
 </template>
-
-<style scoped lang="scss">
-  p {
-    @apply text-sm text-gray-600 pl-0.5;
-  }
-
-  span {
-    @apply text-red-600 font-bold;
-  }
-</style>

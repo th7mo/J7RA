@@ -9,11 +9,11 @@
 </script>
 
 <template>
-  <BaseDialog @close="emit('close')" capped-width>
+  <BaseDialog @click="emit('close')" capped-width>
     <header class="flex items-center gap-7 ml-3 text-sm">
       <p>STORY-{{ story.key }}</p>
       <StoryProgressLabelDropdown :story="story" />
-      <BaseCloseButton class="ml-auto" @close="emit('close')" />
+      <BaseCloseButton class="ml-auto" @click="emit('close')" />
     </header>
 
     <StoryCreateInput
