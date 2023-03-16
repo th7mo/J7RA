@@ -5,12 +5,11 @@
   const element = ref();
 
   const props = defineProps<{
-    id: number;
     story: UserStory;
   }>();
 
   onMounted(() => {
-    element.value = document.getElementById(`${props.id}`);
+    element.value = document.getElementById(`${props.story.key}`);
   });
 
   const initX = ref(0);
@@ -42,29 +41,27 @@
 
   function setDraggable(event: any) {
     draggable.value = true;
-    initX.value = event.screenX;
-    initY.value = event.screenY;
+    initX.value = event.clientX;
+    initY.value = event.clientY;
   }
 
   function moveElement(event: any) {
     if (draggable.value === false) {
       return;
     }
-    const diffX = event.screenX - initX.value;
-    const diffY = event.screenY - initY.value;
+    const diffX = event.clientX - initX.value;
+    const diffY = event.clientY - initY.value;
     element.value.style.transform = `translate(${diffX}px, ${diffY}px)`;
   }
 
   function stopMovingElement(event: any) {
-    element.value.style.transform = '';
-    draggable.value = false;
     setListBounds();
     updateProgress(event);
+    element.value.style.transform = 'translate(0, 0)';
+    draggable.value = false;
   }
 
   function updateProgress(event: any) {
-    console.log(event.clientX);
-
     if (
       todoStart.value &&
       todoEnd.value &&
