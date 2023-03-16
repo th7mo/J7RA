@@ -102,10 +102,7 @@
 </script>
 
 <template>
-  <div
-    @mousedown.left="setDraggable"
-    :class="`${draggable ? 'z-50 hover:cursor-grabbing' : 'hover:cursor-grab'}`"
-  >
+  <div @mousedown.left="setDraggable" :class="`${draggable ? 'z-50 hover:cursor-grabbing' : ''}`">
     <slot></slot>
   </div>
 </template>

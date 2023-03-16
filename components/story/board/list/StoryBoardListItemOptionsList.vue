@@ -27,7 +27,7 @@
         Edit
       </li>
       <li
-        class="px-4 py-2 text-sm border-l-[3px] border-transparent hover:bg-gray-200 hover:cursor-pointer hover:border-l-blue-600"
+        class="px-4 py-2 text-sm border-l-[3px] border-transparent hover:bg-gray-200 hover:cursor-pointer hover:border-l-red-500"
         @mousedown.left="deleteCurrentStory"
       >
         Delete

@@ -41,7 +41,7 @@
     @click="toggleDropdown"
     @blur="closeDropdown"
     tabindex="1"
-    :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] relative hover:cursor-pointer ${computedColor}`"
+    :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-[6px] py-[2px] rounded text-[0.8rem] relative hover:cursor-pointer ${computedColor}`"
   >
     <span class="whitespace-nowrap">{{ story.progress }}</span>
     <BaseDropdown :color="computedColorHex" />
