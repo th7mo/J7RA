@@ -4,37 +4,29 @@
   defineProps<{
     stories: UserStory[];
     title?: string;
-    kanbanStyle?: boolean;
-    draggable?: boolean;
+    kanban?: boolean;
   }>();
-
-  const isCreateRowHidden = ref(true);
 </script>
 
 <template>
-  <section
-    class="bg-gray-100 bg-opacity-80 rounded py-3 px-2"
-    @mouseenter="isCreateRowHidden = false"
-    @mouseleave="isCreateRowHidden = true"
-  >
+  <section class="bg-gray-100 bg-opacity-80 rounded py-3 px-2 group">
     <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2">{{ title }}</h2>
     <ul class="flex flex-col gap-1">
-      <BaseDraggable v-for="story in stories" :id="story.key" :story="story" v-if="draggable">
-        <StoryBoardListItem
-          :key="story.key"
-          :story="story"
-          :kanban-style="kanbanStyle"
-          :id="story.key"
-        />
-      </BaseDraggable>
-      <StoryBoardListItem
+      <StoryBoardKanbanListItem
+        v-for="story in stories"
+        v-if="kanban"
+        :key="story.key"
+        :story="story"
+        :id="story.key"
+      />
+      <StoryBoardBacklogListItem
         v-else
         v-for="story in stories"
         :id="story.key"
         :story="story"
-        :key="story.key"
+        :key="story.key + '-backlog'"
       />
-      <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
+      <StoryBoardListItemCreateRow class="opacity-0 group-hover:opacity-100" />
     </ul>
   </section>
 </template>
