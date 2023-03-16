@@ -10,7 +10,10 @@
 
 <template>
   <section class="bg-gray-100 bg-opacity-80 rounded py-3 px-2 group">
-    <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2">{{ title }}</h2>
+    <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2 flex items-center gap-4">
+      {{ title }} {{ stories.length > 0 ? ` (${stories.length})` : '' }}
+      <BaseCheckIcon v-if="title === 'Done'" class="pt-[2px]" />
+    </h2>
     <ul class="flex flex-col gap-1">
       <StoryBoardKanbanListItem
         v-for="story in stories"

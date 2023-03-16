@@ -30,11 +30,15 @@
   function closeDropdown() {
     isDropdownShown.value = false;
   }
+
+  function toggleDropdown() {
+    isDropdownShown.value = !isDropdownShown.value;
+  }
 </script>
 
 <template>
   <button
-    @click="isDropdownShown = true"
+    @click="toggleDropdown"
     @blur="closeDropdown"
     tabindex="1"
     :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] relative hover:cursor-pointer ${computedColor}`"

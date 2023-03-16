@@ -6,11 +6,15 @@
   }>();
 
   const isOptionsListShown = ref(false);
+
+  function toggleOptionsList() {
+    isOptionsListShown.value = !isOptionsListShown.value;
+  }
 </script>
 
 <template>
   <BaseEllipsisButton
-    @click="isOptionsListShown = true"
+    @click="toggleOptionsList"
     @blur="isOptionsListShown = false"
     tabindex="1"
     v-bind="$attrs"

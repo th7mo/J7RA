@@ -68,14 +68,9 @@
       <StoryCreateInput class="w-1/2" label-text="Assignee" v-model="userStory.assignee" />
       <StoryCreateInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
 
-      <section>
-        <BaseButton @click="createUserStory" class="float-right mt-4" label="Create" />
-        <BaseButton
-          @click="emit('close')"
-          transparent
-          class="float-right mt-4 mr-2"
-          label="Cancel"
-        />
+      <section class="flex justify-end">
+        <BaseButton @click="emit('close')" transparent class="mt-4 mr-2" label="Cancel" />
+        <BaseButton @click="createUserStory" class="mt-4" label="Create" />
       </section>
     </form>
   </BaseDialog>
