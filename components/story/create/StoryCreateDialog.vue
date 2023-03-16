@@ -34,11 +34,11 @@
 
 <template>
   <BaseDialog @click="emit('close')" capped-width>
-    <header>
-      <h2>Create User Story</h2>
-      <BaseCloseButton class="close-button" @click="emit('close')" />
+    <header class="flex content-between">
+      <h2 class="font-bold w-[40vw] text-2xl mb-8">Create User Story</h2>
+      <BaseCloseButton class="float-right" @click="emit('close')" />
     </header>
-    <main>
+    <form class="flex flex-col gap-5">
       <StoryCreateInput
         required
         label-text="Summary"
@@ -51,43 +51,18 @@
         v-model="userStory.description"
         class="description"
       />
-      <StoryCreateInput label-text="Assignee" v-model="userStory.assignee" />
+      <StoryCreateInput class="w-1/2" label-text="Assignee" v-model="userStory.assignee" />
+      <StoryCreateInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
 
       <section>
-        <BaseButton @click="createUserStory" class="button" label="Create" />
+        <BaseButton @click="createUserStory" class="float-right mt-4" label="Create" />
         <BaseButton
           @click="emit('close')"
           transparent
-          class="button button__cancel"
+          class="float-right mt-4 mr-2"
           label="Cancel"
         />
       </section>
-    </main>
+    </form>
   </BaseDialog>
 </template>
-
-<style scoped lang="scss">
-  header {
-    @apply flex content-between;
-  }
-
-  .close-button {
-    @apply float-right;
-  }
-
-  main {
-    @apply flex flex-col gap-5;
-  }
-
-  h2 {
-    @apply font-medium w-[40vw] text-2xl mb-8;
-  }
-
-  .button {
-    @apply float-right mt-4;
-
-    &__cancel {
-      @apply mr-2;
-    }
-  }
-</style>
