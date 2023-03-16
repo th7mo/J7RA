@@ -15,7 +15,7 @@
       <h4 class="font-bold">Story Points</h4>
       <StoryCreateInputNumber borderless v-model="story.points" placeholder="None" />
       <h4 class="font-bold">Created</h4>
-      <p class="py-1">{{ story.created }}</p>
+      <p class="py-1 pl-[5px]">{{ story.created }}</p>
     </ul>
   </section>
 </template>

@@ -23,7 +23,7 @@
       class="text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative px-2 py-1"
     >
       <p
-        :class="`text-gray-600 hover:cursor-pointer hover:underline col-start-1 col-end-5 row-start-2 row-end-3 justify-start p-0 pl-1 py-2 font-bold text-[0.77rem]
+        :class="`text-gray-600 max-w-fit hover:cursor-pointer hover:underline col-start-1 col-end-5 row-start-2 row-end-3 justify-start p-0 pl-1 py-2 font-bold text-[0.77rem]
       ${story.progress === 'Done' ? 'line-through' : ''}`"
         @click="showStoryOverview"
       >
