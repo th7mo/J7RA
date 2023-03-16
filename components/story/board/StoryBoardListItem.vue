@@ -20,7 +20,7 @@
 
 <template>
   <li
-    :class="`text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative hover:cursor-pointer ${
+    :class="`text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative ${
       props.kanbanStyle ? 'px-2 py-1 ' : 'py-2 px-3'
     }`"
   >

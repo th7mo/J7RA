@@ -15,9 +15,6 @@
   const initX = ref(0);
   const initY = ref(0);
 
-  const todo = document.getElementById('todo');
-  const progress = document.getElementById('progress');
-  const done = document.getElementById('done');
   const store = useStoryStore();
 
   const todoStart: Ref<number | null | undefined> = ref(0);
@@ -28,6 +25,9 @@
   const doneEnd: Ref<number | null | undefined> = ref(0);
 
   function setListBounds() {
+    let todo = document.getElementById('todo');
+    let progress = document.getElementById('progress');
+    let done = document.getElementById('done');
     if (!todo || !progress || !done) {
       return;
     }
@@ -57,8 +57,10 @@
   function stopMovingElement(event: any) {
     setListBounds();
     updateProgress(event);
-    element.value.style.transform = 'translate(0, 0)';
+    element.value.style.transform = '';
     draggable.value = false;
+    console.log(todoStart.value);
+    console.log(todoEnd.value);
   }
 
   function updateProgress(event: any) {
@@ -95,7 +97,7 @@
     @mousedown.left="setDraggable"
     @mousemove.left="moveElement"
     @mouseup="stopMovingElement"
-    :class="`${draggable ? 'z-50' : ''}`"
+    :class="`${draggable ? 'z-50 hover:cursor-grabbing' : 'hover:cursor-grab'}`"
   >
     <slot></slot>
   </div>

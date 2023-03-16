@@ -5,6 +5,7 @@
     stories: UserStory[];
     title?: string;
     kanbanStyle?: boolean;
+    draggable?: boolean;
   }>();
 
   const isCreateRowHidden = ref(true);
@@ -18,7 +19,7 @@
   >
     <h2 v-if="title" class="text-base text-slate-700 font-light ml-1 mb-2">{{ title }}</h2>
     <ul class="flex flex-col gap-1">
-      <BaseDraggable v-for="story in stories" :id="story.key" :story="story">
+      <BaseDraggable v-for="story in stories" :id="story.key" :story="story" v-if="draggable">
         <StoryBoardListItem
           :key="story.key"
           :story="story"
@@ -26,6 +27,13 @@
           :id="story.key"
         />
       </BaseDraggable>
+      <StoryBoardListItem
+        v-else
+        v-for="story in stories"
+        :id="story.key"
+        :story="story"
+        :key="story.key"
+      />
       <StoryBoardListItemCreateRow :hidden="isCreateRowHidden" />
     </ul>
   </section>
