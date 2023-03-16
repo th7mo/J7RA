@@ -45,6 +45,14 @@
     initY.value = event.clientY;
   }
 
+  window.addEventListener('mousemove', (event) => {
+    moveElement(event);
+  });
+
+  window.addEventListener('mouseup', (event) => {
+    stopMovingElement(event);
+  });
+
   function moveElement(event: any) {
     if (draggable.value === false) {
       return;
@@ -55,12 +63,13 @@
   }
 
   function stopMovingElement(event: any) {
+    if (draggable.value === false) {
+      return;
+    }
+    draggable.value = false;
     setListBounds();
     updateProgress(event);
     element.value.style.transform = '';
-    draggable.value = false;
-    console.log(todoStart.value);
-    console.log(todoEnd.value);
   }
 
   function updateProgress(event: any) {
@@ -95,8 +104,6 @@
 <template>
   <div
     @mousedown.left="setDraggable"
-    @mousemove.left="moveElement"
-    @mouseup="stopMovingElement"
     :class="`${draggable ? 'z-50 hover:cursor-grabbing' : 'hover:cursor-grab'}`"
   >
     <slot></slot>
