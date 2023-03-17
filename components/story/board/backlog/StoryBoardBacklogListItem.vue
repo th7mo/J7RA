@@ -19,10 +19,10 @@
 
 <template>
   <li
-    class="text-sm grid items-center border-y-gray-300 shadow rounded bg-white gap-3 select-none relative py-2 px-3"
+    class="text-sm grid items-center border border-gray-300 shadow rounded bg-white gap-3 select-none relative py-2 px-3"
   >
     <p
-      :class="`text-gray-600 hover:cursor-pointer hover:underline
+      :class="`text-gray-600 hover:cursor-pointer hover:underline font-bold text-[0.77rem]
       ${story.progress === 'Done' ? 'line-through' : ''}`"
       @click="showStoryOverview"
     >

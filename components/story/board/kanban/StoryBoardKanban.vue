@@ -18,13 +18,13 @@
 <template>
   <ul class="max-w-4xl grid grid-cols-3 gap-4">
     <li id="todo">
-      <StoryBoardList :stories="todoStories" title="To Do" kanban />
+      <StoryBoardList :stories="todoStories" title="To Do" kanban create-row />
     </li>
     <li id="progress">
-      <StoryBoardList :stories="inProgressStories" title="In Progress" kanban />
+      <StoryBoardList :stories="inProgressStories" title="In Progress" kanban create-row />
     </li>
     <li id="done">
-      <StoryBoardList :stories="doneStories" title="Done" kanban />
+      <StoryBoardList :stories="doneStories" title="Done" kanban create-row />
     </li>
   </ul>
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { UserStory } from '~~/composables/useStoriesService';
+  import { Epic } from '~~/composables/epic';
 
   defineProps<{
-    story: UserStory;
+    epic: Epic;
   }>();
 
   const emit = defineEmits(['close']);
@@ -12,14 +12,13 @@
   <BaseDialog @click="emit('close')">
     <ul class="grid grid-cols-5 gap-5 w-full max-w-4xl">
       <header class="flex items-center gap-7 ml-3 text-sm col-span-5">
-        <p class="font-bold">STORY-{{ story.key }}</p>
-        <StoryProgressLabelDropdown :story="story" />
+        <p class="font-bold">EPIC-{{ epic.id }}</p>
         <BaseCloseButton class="ml-auto" @click="emit('close')" />
       </header>
 
       <StoryCreateInput
         class="font-medium text-2xl min-w-full mb-3 pl-1 min-h-fit w-[50rem] col-span-5"
-        v-model="story.summary"
+        v-model="epic.name"
         borderless
         :rows="1"
       />
@@ -29,13 +28,12 @@
 
         <StoryCreateTextArea
           class="text-sm marker:ml-1 text-gray-700"
-          v-model="story.description"
+          v-model="epic.description"
           borderless
           :rows="7"
           place-holder="You can add a description here!"
         />
       </li>
-      <StoryOverviewDetails :story="story" class="col-span-2" />
     </ul>
   </BaseDialog>
 </template>

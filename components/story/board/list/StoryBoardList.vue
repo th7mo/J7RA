@@ -5,6 +5,7 @@
     stories: UserStory[];
     title?: string;
     kanban?: boolean;
+    createRow?: boolean;
   }>();
 </script>
 
@@ -32,7 +33,7 @@
         :story="story"
         :key="story.key + '-backlog'"
       />
-      <StoryBoardListItemCreateRow class="opacity-0 group-hover:opacity-100" />
+      <StoryBoardListItemCreateRow class="opacity-0 group-hover:opacity-100" text="Create Story" v-if="createRow"/>
     </ul>
   </section>
 </template>

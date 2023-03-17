@@ -13,6 +13,7 @@
       </li>
       <TheHeaderPageLink to="backlog" />
       <TheHeaderPageLink to="kanban" />
+      <TheHeaderPageLink to="epics" />
       <li class="h-full grid place-items-center pl-3">
         <BaseButton label="Create" @click="storyStore.setIsCreatingStory(true)" />
       </li>

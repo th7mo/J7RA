@@ -8,7 +8,7 @@
 
 <template>
   <section>
-    <h2 class="col-span-2 text-xl mb-3">Details</h2>
+    <h2 class="col-span-2 text-xl font-medium mb-3">Details</h2>
     <ul class="border p-3 rounded-sm text-[0.8rem] grid grid-cols-2 items-center gap-1">
       <h4 class="font-bold">Assignee</h4>
       <StoryCreateInput borderless v-model="story.assignee" placeholder="None" />
