@@ -1,5 +1,5 @@
 <template>
   <Story>
-    <StoryBoardBacklog />
+    <StoryBacklog />
   </Story>
 </template>

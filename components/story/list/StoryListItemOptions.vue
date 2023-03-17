@@ -20,7 +20,7 @@
     v-bind="$attrs"
   />
 
-  <StoryBoardListItemOptionsList
+  <StoryListItemOptionsList
     v-if="isOptionsListShown"
     :story="story"
     class="top-11 right-2 absolute z-50"

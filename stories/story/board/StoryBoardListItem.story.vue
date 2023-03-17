@@ -23,15 +23,15 @@
 <template>
   <Story :layout="{ type: 'grid', width: '90%' }">
     <Variant title="Normal Story">
-      <StoryBoardList :stories="oneStory" />
+      <StoryList :stories="oneStory" />
     </Variant>
 
     <Variant title="Empty Summary">
-      <StoryBoardList :stories="[]" />
+      <StoryList :stories="[]" />
     </Variant>
 
     <Variant title="Key Not Found">
-      <StoryBoardList :stories="minusStory" />
+      <StoryList :stories="minusStory" />
     </Variant>
   </Story>
 </template>

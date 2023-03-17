@@ -1,11 +1,11 @@
 <template>
   <Story :layout="{ type: 'grid', width: '60%' }">
     <Variant title="Visible">
-      <StoryBoardListItemCreateRow />
+      <StoryListItemCreateRow />
     </Variant>
 
     <Variant title="Not Visible">
-      <StoryBoardListItemCreateRow hidden />
+      <StoryListItemCreateRow hidden />
     </Variant>
   </Story>
 </template>

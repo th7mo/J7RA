@@ -34,7 +34,7 @@
 
       <h2 class="justify-self-start col-span-7 pt-1 pl-1">{{ story.summary }}</h2>
 
-      <StoryBoardListItemOptions :story="story" class="self-start mt-1" />
+      <StoryListItemOptions :story="story" class="self-start mt-1" />
       <BaseCheckIcon
         v-if="story.progress === 'Done'"
         class="pt-[2px] col-start-8 col-end-9 row-start-3 row-end-4 grid self-center justify-self-center"

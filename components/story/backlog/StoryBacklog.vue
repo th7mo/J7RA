@@ -4,5 +4,5 @@
 </script>
 
 <template>
-  <StoryBoardList :stories="store.getStories" create-row />
+  <StoryList :stories="store.getStories" create-row />
 </template>

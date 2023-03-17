@@ -31,7 +31,7 @@
 
     <h2 class="justify-self-start col-span-5">{{ story.summary }}</h2>
     <StoryProgressLabelDropdown class="justify-self-end" :story="story" />
-    <StoryBoardListItemOptions :story="story" />
+    <StoryListItemOptions :story="story" />
   </li>
 </template>
 

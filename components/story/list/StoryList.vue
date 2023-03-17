@@ -19,21 +19,21 @@
       <BaseCheckIcon v-if="title === 'Done'" class="pt-[2px]" />
     </h2>
     <ul class="flex flex-col gap-1">
-      <StoryBoardKanbanListItem
+      <StoryKanbanListItem
         v-for="story in stories"
         v-if="kanban"
         :key="story.key"
         :story="story"
         :id="story.key"
       />
-      <StoryBoardBacklogListItem
+      <StoryBacklogListItem
         v-else
         v-for="story in stories"
         :id="story.key"
         :story="story"
         :key="story.key + '-backlog'"
       />
-      <StoryBoardListItemCreateRow class="opacity-0 group-hover:opacity-100" text="Create Story" v-if="createRow"/>
+      <StoryListItemCreateRow class="opacity-0 group-hover:opacity-100" text="Create Story" v-if="createRow"/>
     </ul>
   </section>
 </template>

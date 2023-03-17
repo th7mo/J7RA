@@ -50,31 +50,31 @@
   <Story :layout="{ type: 'grid', width: '80%' }">
     <Variant title="Filled List">
       <Suspense>
-        <StoryBoardList :stories="stories" title="BACKLOG" />
+        <StoryList :stories="stories" title="BACKLOG" />
       </Suspense>
     </Variant>
 
     <Variant title="Empty List">
       <Suspense>
-        <StoryBoardList :stories="[]" title="TODO" />
+        <StoryList :stories="[]" title="TODO" />
       </Suspense>
     </Variant>
 
     <Variant title="Empty List Without Title">
       <Suspense>
-        <StoryBoardList :stories="[]" />
+        <StoryList :stories="[]" />
       </Suspense>
     </Variant>
 
     <Variant title="Single Item List Without Title">
       <Suspense>
-        <StoryBoardList :stories="oneStory" />
+        <StoryList :stories="oneStory" />
       </Suspense>
     </Variant>
 
     <Variant title="List with item without summary">
       <Suspense>
-        <StoryBoardList :stories="storiesWithoutSummary" title="IN PROGRESS | 1 ISSUE" />
+        <StoryList :stories="storiesWithoutSummary" title="IN PROGRESS | 1 ISSUE" />
       </Suspense>
     </Variant>
   </Story>

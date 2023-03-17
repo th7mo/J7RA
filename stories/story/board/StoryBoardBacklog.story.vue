@@ -1,7 +1,7 @@
 <template>
   <Story>
     <Variant title="Default Backlog">
-      <StoryBoardBacklog />
+      <StoryBacklog />
     </Variant>
   </Story>
 </template>
