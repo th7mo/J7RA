@@ -14,6 +14,7 @@
     class="hover:cursor-pointer relative"
     purple
     tabindex="1"
+    dropdown
     @click="isListShown = true"
     @blur="isListShown = false"
   >

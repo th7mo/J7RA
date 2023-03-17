@@ -1,30 +1,21 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
 
-  interface Props {
+  const props = defineProps<{
     story: UserStory;
-  }
-
-  const props = defineProps<Props>();
+  }>();
   const isDropdownShown = ref(false);
 
-  const computedColor = computed(() => {
-    if (props.story.progress === 'To Do') {
-      return 'text-gray-500 bg-gray-200 bg-opacity-70';
-    } else if (props.story.progress === 'Done') {
-      return 'text-green-600 bg-green-100';
-    }
-    return '';
-  });
+  function getComputedColorHex() {
+    console.log(props.story.progress);
 
-  const computedColorHex = computed(() => {
     if (props.story.progress === 'To Do') {
-      return '#6B7280';
+      return '#6b7280';
     } else if (props.story.progress === 'Done') {
-      return '#16A34A';
+      return '#16a34a';
     }
-    return '#2563EB';
-  });
+    return '#2563eb';
+  }
 
   function closeDropdown() {
     isDropdownShown.value = false;
@@ -40,10 +31,14 @@
     @click="toggleDropdown"
     @blur="closeDropdown"
     tabindex="1"
-    :class="computedColor + ' hover:cursor-pointer relative'"
+    :gray="props.story.progress === 'To Do'"
+    :blue="props.story.progress === 'In Progress'"
+    :green="props.story.progress === 'Done'"
+    class="hover:cursor-pointer relative"
+    dropdown
   >
     {{ story.progress }}
-    <BaseDropdownIcon :color="computedColorHex" />
+    <BaseDropdownIcon :color="getComputedColorHex()" />
     <StoryProgressLabelDropdownList
       class="top-8 right-0 absolute z-50"
       :story="story"

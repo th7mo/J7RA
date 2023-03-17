@@ -21,7 +21,7 @@
       <BaseLabel gray>To Do</BaseLabel>
     </BaseOptionsListItem>
     <BaseOptionsListItem @mousedown.left="saveProgressState('In Progress')">
-      <BaseLabel>In Progress</BaseLabel>
+      <BaseLabel blue>In Progress</BaseLabel>
     </BaseOptionsListItem>
     <BaseOptionsListItem @mousedown.left="saveProgressState('Done')">
       <BaseLabel green>Done</BaseLabel>
