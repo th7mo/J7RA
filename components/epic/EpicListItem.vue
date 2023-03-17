@@ -31,7 +31,7 @@
 
 <template>
   <li class="rounded shadow border border-gray-300 bg-white p-[6px] grid gap-1 items-center">
-    <BaseCheckbox :epic="epic" v-model="model" class="pl-1" />
+    <BaseCheckbox :epic="epic" v-model="model" class="ml-1" />
     <p
       class="font-bold text-[0.77rem] hover:bg-gray-100 hover:cursor-pointer rounded py-1 px-2"
       @click="editEpic"

@@ -79,5 +79,14 @@ export const useStoryStore = defineStore('stories', {
       this.stories = this.stories.filter((story) => story.key !== storyKey);
       useStoriesService.putStories(this.stories);
     },
+
+    deleteEpic(epicId: number) {
+      for (const story of this.stories) {
+        if (story.epic === epicId) {
+          story.epic = undefined;
+        }
+      }
+      this.saveStories();
+    },
   },
 });

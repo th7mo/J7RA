@@ -30,23 +30,24 @@
 </script>
 
 <template>
-  <BaseDialog @click="emit('close')">
-    <header class="flex content-between">
+  <BaseDialog @close="emit('close')">
+    <template v-slot:header>
       <h2 class="font-bold w-[40vw] text-2xl mb-8">Create Epic</h2>
-      <BaseCloseButton class="float-right" @click="emit('close')" />
-    </header>
-    <form class="flex flex-col gap-5">
-      <BaseInput required label-text="Name" v-model="epic.name" :error="isInvalidName" />
-      <BaseTextArea
-        label-text="Description"
-        place-holder="You can enter more details here!"
-        v-model="epic.description"
-        class="description"
-      />
-      <section class="flex justify-end">
-        <BaseButton @click="emit('close')" transparent class="mt-4 mr-2" label="Cancel" />
-        <BaseButton @click="createUserStory" class="mt-4" label="Create" />
-      </section>
-    </form>
+    </template>
+    <template v-slot:main>
+      <form class="flex flex-col gap-5">
+        <BaseInput required label-text="Name" v-model="epic.name" :error="isInvalidName" />
+        <BaseTextArea
+          label-text="Description"
+          place-holder="You can enter more details here!"
+          v-model="epic.description"
+          class="description"
+        />
+        <section class="flex justify-end">
+          <BaseButton @click="emit('close')" transparent class="mt-4 mr-2" label="Cancel" />
+          <BaseButton @click="createUserStory" class="mt-4" label="Create" />
+        </section>
+      </form>
+    </template>
   </BaseDialog>
 </template>
