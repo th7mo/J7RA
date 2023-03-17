@@ -16,26 +16,15 @@
 </script>
 
 <template>
-  <BaseOptionsList>
-    <ul class="w-full py-1 z-50">
-      <li
-        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
-        @mousedown.left="saveProgressState('To Do')"
-      >
-        <StoryProgressLabel text="To Do" gray />
-      </li>
-      <li
-        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
-        @mousedown.left="saveProgressState('In Progress')"
-      >
-        <StoryProgressLabel text="In Progress" />
-      </li>
-      <li
-        class="py-1 pl-3 pr-20 border-l-[3px] border-transparent hover:bg-gray-200 hover:border-l-blue-600"
-        @mousedown.left="saveProgressState('Done')"
-      >
-        <StoryProgressLabel text="Done" green />
-      </li>
-    </ul>
+  <BaseOptionsList class="py-1 z-50 w-40">
+    <BaseOptionsListItem @mousedown.left="saveProgressState('To Do')">
+      <StoryProgressLabel text="To Do" gray />
+    </BaseOptionsListItem>
+    <BaseOptionsListItem @mousedown.left="saveProgressState('In Progress')">
+      <StoryProgressLabel text="In Progress" />
+    </BaseOptionsListItem>
+    <BaseOptionsListItem @mousedown.left="saveProgressState('Done')">
+      <StoryProgressLabel text="Done" green />
+    </BaseOptionsListItem>
   </BaseOptionsList>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <main @click.stop="" class="bg-white rounded shadow-2xl border border-gray-300">
+  <ul @click.stop="" class="bg-white rounded shadow-2xl border border-gray-300 flex flex-col">
     <slot></slot>
-  </main>
+  </ul>
 </template>

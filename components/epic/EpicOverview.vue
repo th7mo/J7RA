@@ -16,7 +16,7 @@
         <BaseCloseButton class="ml-auto" @click="emit('close')" />
       </header>
 
-      <StoryCreateInput
+      <BaseInput
         class="font-medium text-2xl min-w-full mb-3 pl-1 min-h-fit w-[50rem] col-span-5"
         v-model="epic.name"
         borderless
@@ -26,8 +26,8 @@
       <li class="col-span-3">
         <p class="font-semibold text-sm ml-[0.62rem] mb-1 pt-4">Description</p>
 
-        <StoryCreateTextArea
-          class="text-sm marker:ml-1 text-gray-700"
+        <BaseTextArea
+          class="text-sm ml-1 text-gray-700"
           v-model="epic.description"
           borderless
           :rows="7"

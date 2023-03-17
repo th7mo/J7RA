@@ -3,6 +3,7 @@
     text: string;
     gray?: boolean;
     green?: boolean;
+    purple?: boolean;
   }
 
   withDefaults(defineProps<Props>(), {
@@ -12,25 +13,13 @@
 </script>
 
 <template>
-  <ul :class="gray ? 'gray' : green ? 'green' : 'blue'">
-    <p>{{ text }}</p>
-  </ul>
+  <button
+    :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] max-w-fit ${
+      gray ? 'text-gray-500 bg-gray-200/70' : ''
+    } ${green ? 'text-green-600 bg-green-100' : ''} ${
+      purple ? 'text-purple-600 bg-purple-100' : ''
+    }`"
+  >
+    <span class="whitespace-nowrap">{{ text }}</span>
+  </button>
 </template>
-
-<style scoped lang="scss">
-  ul {
-    @apply flex items-center font-bold bg-blue-100 text-blue-600 px-2 py-[0.05rem] rounded text-[0.8rem] max-w-fit;
-  }
-
-  p {
-    @apply whitespace-nowrap;
-  }
-
-  .gray {
-    @apply text-gray-500 bg-gray-200 bg-opacity-70;
-  }
-
-  .green {
-    @apply text-green-600 bg-green-100;
-  }
-</style>

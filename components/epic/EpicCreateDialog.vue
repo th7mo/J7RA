@@ -31,14 +31,14 @@
 </script>
 
 <template>
-  <BaseDialog @click="emit('close')" capped-width>
+  <BaseDialog @click="emit('close')">
     <header class="flex content-between">
       <h2 class="font-bold w-[40vw] text-2xl mb-8">Create Epic</h2>
       <BaseCloseButton class="float-right" @click="emit('close')" />
     </header>
     <form class="flex flex-col gap-5">
-      <StoryCreateInput required label-text="Name" v-model="epic.name" :error="isInvalidName" />
-      <StoryCreateTextArea
+      <BaseInput required label-text="Name" v-model="epic.name" :error="isInvalidName" />
+      <BaseTextArea
         label-text="Description"
         place-holder="You can enter more details here!"
         v-model="epic.description"

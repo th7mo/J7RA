@@ -47,25 +47,25 @@
 </script>
 
 <template>
-  <BaseDialog @click="emit('close')" capped-width>
+  <BaseDialog @click="emit('close')">
     <header class="flex content-between">
       <h2 class="font-bold w-[40vw] text-2xl mb-8">Create User Story</h2>
       <BaseCloseButton class="float-right" @click="emit('close')" />
     </header>
     <form class="flex flex-col gap-5">
-      <StoryCreateInput
+      <BaseInput
         required
         label-text="Summary"
         v-model="userStory.summary"
         :error="isInvalidSummary"
       />
-      <StoryCreateTextArea
+      <BaseTextArea
         label-text="Description"
         place-holder="You can enter more details here!"
         v-model="userStory.description"
         class="description"
       />
-      <StoryCreateInput class="w-1/2" label-text="Assignee" v-model="userStory.assignee" />
+      <BaseInput class="w-1/2" label-text="Assignee" v-model="userStory.assignee" />
       <StoryCreateInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
 
       <section class="flex justify-end">

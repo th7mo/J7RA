@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { propsToAttrMap } from '@vue/shared';
   import { UserStory } from '~~/composables/useStoriesService';
 
   interface Props {

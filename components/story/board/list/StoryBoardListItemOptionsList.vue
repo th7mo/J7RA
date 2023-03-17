@@ -18,20 +18,10 @@
 </script>
 
 <template>
-  <BaseOptionsList>
-    <ul class="py-1">
-      <li
-        class="px-4 py-2 text-sm border-l-[3px] border-transparent hover:bg-gray-200 hover:cursor-pointer hover:border-l-blue-600"
-        @mousedown.left="showStoryOverview"
-      >
-        Edit
-      </li>
-      <li
-        class="px-4 py-2 text-sm border-l-[3px] border-transparent hover:bg-gray-200 hover:cursor-pointer hover:border-l-red-500"
-        @mousedown.left="deleteCurrentStory"
-      >
-        Delete
-      </li>
-    </ul>
+  <BaseOptionsList class="py-1 w-20">
+    <BaseOptionsListItem @mousedown.left="showStoryOverview">Edit</BaseOptionsListItem>
+    <BaseOptionsListItem @mousedown.left="deleteCurrentStory" class="hover:border-l-red-500"
+      >Delete</BaseOptionsListItem
+    >
   </BaseOptionsList>
 </template>

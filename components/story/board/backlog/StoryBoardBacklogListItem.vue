@@ -22,7 +22,7 @@
     class="text-sm grid items-center border border-gray-300 shadow rounded bg-white gap-3 select-none relative py-2 px-3"
   >
     <p
-      :class="`text-gray-600 hover:cursor-pointer hover:underline font-bold text-[0.77rem]
+      :class="`text-gray-600 hover:cursor-pointer hover:underline font-bold text-[0.77rem] max-w-fit pr-2
       ${story.progress === 'Done' ? 'line-through' : ''}`"
       @click="showStoryOverview"
     >
@@ -37,6 +37,6 @@
 
 <style scoped lang="scss">
   li {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr auto;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr 1fr auto;
   }
 </style>
