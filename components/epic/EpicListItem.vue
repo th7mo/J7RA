@@ -3,9 +3,21 @@
 
   const props = defineProps<{
     epic: Epic;
+    modelValue: number[];
   }>();
 
   const epicStore = useEpicStore();
+
+  const emit = defineEmits(['update:modelValue']);
+
+  const model = computed({
+    get() {
+      return props.modelValue;
+    },
+    set(value) {
+      emit('update:modelValue', value);
+    },
+  });
 
   function editEpic() {
     epicStore.currentEpic = props.epic;
@@ -19,7 +31,7 @@
 
 <template>
   <li class="rounded shadow border border-gray-300 bg-white p-[6px] grid gap-1 items-center">
-    <BaseEllipsisButton />
+    <BaseCheckbox :epic="epic" v-model="model" class="pl-1" />
     <p
       class="font-bold text-[0.77rem] hover:bg-gray-100 hover:cursor-pointer rounded py-1 px-2"
       @click="editEpic"

@@ -22,7 +22,7 @@
     @click="toggleList"
     @blur="isListShown = false"
   >
-    <span>{{ story.epic ? epicStore.getEpic(story.epic)?.name : 'Add Epic' }}</span>
+    <span class="mr-2">{{ story.epic ? epicStore.getEpic(story.epic)?.name : 'Add Epic' }}</span>
     <BaseDropdownIcon color="#9333EA" :class="`${isListShown ? 'rotate-180' : ''}`" />
     <EpicDropdownList v-if="isListShown" @close="isListShown = false" :story="story" />
   </BaseLabel>

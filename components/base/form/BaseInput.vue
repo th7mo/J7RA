@@ -8,9 +8,7 @@
     placeholder?: string;
   }>();
 
-  const emit = defineEmits<{
-    (e: 'update:modelValue', value: string): void;
-  }>();
+  const emit = defineEmits(["update:modelValue"]);
 </script>
 
 <template>

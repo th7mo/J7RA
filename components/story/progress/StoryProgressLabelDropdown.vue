@@ -7,8 +7,6 @@
   const isDropdownShown = ref(false);
 
   function getComputedColorHex() {
-    console.log(props.story.progress);
-
     if (props.story.progress === 'To Do') {
       return '#6b7280';
     } else if (props.story.progress === 'Done') {
@@ -37,7 +35,7 @@
     class="hover:cursor-pointer relative"
     dropdown
   >
-    {{ story.progress }}
+    <span class="mr-2">{{ story.progress }}</span>
     <BaseDropdownIcon :color="getComputedColorHex()" :class="isDropdownShown ? 'rotate-180' : ''" />
     <StoryProgressLabelDropdownList
       class="top-8 right-0 absolute z-50"
