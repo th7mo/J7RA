@@ -8,8 +8,8 @@
 </script>
 
 <template>
-  <ul class="grid grid-cols-3 gap-4">
+  <ul class="grid grid-cols-2 gap-4">
     <li><EpicList /></li>
-    <li class="col-span-2"><StoryList :stories="todoStories" kanban /></li>
+    <li><StoryList :stories="todoStories" kanban /></li>
   </ul>
 </template>

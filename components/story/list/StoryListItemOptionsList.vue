@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <BaseOptionsList class="py-1 w-20">
+  <BaseOptionsList class="w-20">
     <BaseOptionsListItem @mousedown.left="showStoryOverview">Edit</BaseOptionsListItem>
     <BaseOptionsListItem @mousedown.left="deleteCurrentStory" class="hover:border-l-red-500"
       >Delete</BaseOptionsListItem

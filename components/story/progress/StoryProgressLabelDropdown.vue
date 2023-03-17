@@ -38,7 +38,7 @@
     dropdown
   >
     {{ story.progress }}
-    <BaseDropdownIcon :color="getComputedColorHex()" />
+    <BaseDropdownIcon :color="getComputedColorHex()" :class="isDropdownShown ? 'rotate-180' : ''" />
     <StoryProgressLabelDropdownList
       class="top-8 right-0 absolute z-50"
       :story="story"
