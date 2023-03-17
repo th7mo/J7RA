@@ -21,6 +21,11 @@ export const useEpicStore = defineStore('epics', {
       epicService.postEpic(epic);
     },
 
+    deleteEpic(epicId: number) {
+      this.epics = this.epics.filter((epic) => epic.id !== epicId);
+      epicService.putEpics(this.epics);
+    },
+
     putEpics() {
       epicService.putEpics(this.epics);
     },

@@ -16,7 +16,7 @@
       <h4 class="font-bold">Assignee</h4>
       <BaseInput borderless v-model="story.assignee" placeholder="None" />
       <h4 class="font-bold">Story Points</h4>
-      <StoryCreateInputNumber borderless v-model="story.points" placeholder="None" />
+      <BaseInputNumber borderless v-model="story.points" placeholder="None" />
       <h4 class="font-bold">Created</h4>
       <p class="py-1 pl-[5px]">{{ story.created }}</p>
       <h4 class="font-bold">Epic</h4>

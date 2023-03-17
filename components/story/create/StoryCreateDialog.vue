@@ -2,9 +2,7 @@
   import { UserStory } from '~~/composables/useStoriesService';
   const store = useStoryStore();
 
-  const emit = defineEmits<{
-    (e: 'close'): void;
-  }>();
+  const emit = defineEmits(['close']);
 
   const userStory = reactive<UserStory>({
     key: 1,
@@ -47,31 +45,33 @@
 </script>
 
 <template>
-  <BaseDialog @click="emit('close')">
-    <header class="flex content-between">
+  <BaseDialog @close="emit('close')">
+    <template v-slot:header>
       <h2 class="font-bold w-[40vw] text-2xl mb-8">Create User Story</h2>
-      <BaseCloseButton class="float-right" @click="emit('close')" />
-    </header>
-    <form class="flex flex-col gap-5">
-      <BaseInput
-        required
-        label-text="Summary"
-        v-model="userStory.summary"
-        :error="isInvalidSummary"
-      />
-      <BaseTextArea
-        label-text="Description"
-        place-holder="You can enter more details here!"
-        v-model="userStory.description"
-        class="description"
-      />
-      <BaseInput class="w-1/2" label-text="Assignee" v-model="userStory.assignee" />
-      <StoryCreateInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
+    </template>
+    <template v-slot:main>
+      <form class="flex flex-col">
+        <BaseInput
+          required
+          label-text="Summary"
+          v-model="userStory.summary"
+          :error="isInvalidSummary"
+          class="mb-3"
+        />
+        <BaseTextArea
+          label-text="Description"
+          place-holder="You can enter more details here!"
+          v-model="userStory.description"
+          class="description mb-3"
+        />
+        <BaseInput class="w-1/2 mb-3" label-text="Assignee" v-model="userStory.assignee" />
+        <BaseInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
 
-      <section class="flex justify-end">
-        <BaseButton @click="emit('close')" transparent class="mt-4 mr-2" label="Cancel" />
-        <BaseButton @click="createUserStory" class="mt-4" label="Create" />
-      </section>
-    </form>
+        <section class="flex justify-end">
+          <BaseButton @click="emit('close')" transparent class="mt-4 mr-2" label="Cancel" />
+          <BaseButton @click="createUserStory" class="mt-4" label="Create" />
+        </section>
+      </form>
+    </template>
   </BaseDialog>
 </template>

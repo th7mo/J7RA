@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <BaseLabel v-if="labelText" :required="required" :label-text="labelText" />
+  <BaseFormLabel v-if="labelText" :required="required" :label-text="labelText" />
   <textarea
     @keyup="emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
     v-text="modelValue"
