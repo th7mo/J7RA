@@ -18,13 +18,13 @@
 <template>
   <BaseOptionsList class="py-1 z-50 w-40">
     <BaseOptionsListItem @mousedown.left="saveProgressState('To Do')">
-      <StoryProgressLabel text="To Do" gray />
+      <BaseLabel gray>To Do</BaseLabel>
     </BaseOptionsListItem>
     <BaseOptionsListItem @mousedown.left="saveProgressState('In Progress')">
-      <StoryProgressLabel text="In Progress" />
+      <BaseLabel>In Progress</BaseLabel>
     </BaseOptionsListItem>
     <BaseOptionsListItem @mousedown.left="saveProgressState('Done')">
-      <StoryProgressLabel text="Done" green />
+      <BaseLabel green>Done</BaseLabel>
     </BaseOptionsListItem>
   </BaseOptionsList>
 </template>

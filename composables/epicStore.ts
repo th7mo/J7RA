@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { Epic } from './epic';
+import { UserStory } from './useStoriesService';
 
 export const useEpicStore = defineStore('epics', {
   state: () => ({
@@ -30,6 +31,19 @@ export const useEpicStore = defineStore('epics', {
         highestKey = Math.max(epic.id, highestKey);
       }
       return highestKey;
+    },
+
+    getEpic(id: number | undefined): Epic | undefined {
+      if (id === undefined) {
+        return undefined;
+      }
+      for (const epic of this.epics) {
+        if (epic.id === id) {
+          return epic;
+        }
+      }
+
+      return undefined;
     },
   },
 });

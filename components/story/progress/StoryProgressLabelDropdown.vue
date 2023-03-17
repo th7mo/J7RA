@@ -36,19 +36,19 @@
 </script>
 
 <template>
-  <button
+  <BaseLabel
     @click="toggleDropdown"
     @blur="closeDropdown"
     tabindex="1"
-    :class="`flex items-center font-bold bg-blue-100 text-blue-600 px-[6px] py-[2px] rounded text-[0.8rem] relative hover:cursor-pointer ${computedColor}`"
+    :class="computedColor + ' hover:cursor-pointer relative'"
   >
-    <span class="whitespace-nowrap">{{ story.progress }}</span>
-    <BaseDropdown :color="computedColorHex" />
+    {{ story.progress }}
+    <BaseDropdownIcon :color="computedColorHex" />
     <StoryProgressLabelDropdownList
       class="top-8 right-0 absolute z-50"
       :story="story"
       v-if="isDropdownShown"
       @option-clicked="closeDropdown"
     />
-  </button>
+  </BaseLabel>
 </template>

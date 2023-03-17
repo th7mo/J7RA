@@ -1,9 +1,12 @@
 <script setup lang="ts">
   import { UserStory } from '~~/composables/useStoriesService';
 
-  defineProps<{
+  const props = defineProps<{
     story: UserStory;
   }>();
+
+  const epicStore = useEpicStore();
+  const epic = epicStore.getEpic(props.story.epic);
 </script>
 
 <template>
@@ -17,6 +20,7 @@
       <h4 class="font-bold">Created</h4>
       <p class="py-1 pl-[5px]">{{ story.created }}</p>
       <h4 class="font-bold">Epic</h4>
+      <EpicDropdown :epic="epic" :story="story" />
     </ul>
   </section>
 </template>

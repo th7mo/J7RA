@@ -10,7 +10,6 @@
     id: 1,
     name: '',
     description: '',
-    stories: [],
   });
 
   const isInvalidName = computed(() => {

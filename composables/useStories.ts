@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { Epic } from './epic';
 import { UserStory } from './useStoriesService';
 
 export const useStoryStore = defineStore('stories', {
@@ -49,15 +50,15 @@ export const useStoryStore = defineStore('stories', {
     },
 
     getTodoStories() {
-      return this.stories.filter(story => story.progress === 'To Do');
+      return this.stories.filter((story) => story.progress === 'To Do');
     },
 
     getInProgressStories() {
-      return this.stories.filter(story => story.progress === 'In Progress');
+      return this.stories.filter((story) => story.progress === 'In Progress');
     },
 
     getDoneStories() {
-      return this.stories.filter(story => story.progress === 'Done');
+      return this.stories.filter((story) => story.progress === 'Done');
     },
 
     getHighestKey() {

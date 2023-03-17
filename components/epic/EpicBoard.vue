@@ -10,6 +10,6 @@
 <template>
   <ul class="grid grid-cols-3 gap-4">
     <li><EpicList /></li>
-    <li class="col-span-2"><StoryBoardList :stories="todoStories" /></li>
+    <li class="col-span-2"><StoryBoardList :stories="todoStories" kanban /></li>
   </ul>
 </template>
