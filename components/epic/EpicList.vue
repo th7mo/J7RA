@@ -18,7 +18,7 @@
 </script>
 
 <template>
-  <section class="bg-gray-100/70 border border-gray-200 rounded py-3 px-2 group">
+  <BaseList class="group">
     <ul class="flex gap-1 flex-col">
       <EpicListItem
         v-for="epic in epicStore.epics"
@@ -26,7 +26,7 @@
         v-model="model"
         :class="model.includes(epic.id) ? 'border-l-blue-600 border-l-4' : 'pl-[0.562rem]'"
       />
-      <EpicListItemCreateRow text="Create Epiac" class="opacity-0 group-hover:opacity-100" />
+      <EpicListItemCreateRow text="Create Epic" class="opacity-0 group-hover:opacity-100" />
     </ul>
-  </section>
+  </BaseList>
 </template>

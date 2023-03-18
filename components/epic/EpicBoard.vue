@@ -9,8 +9,15 @@
 </script>
 
 <template>
-  <ul class="grid grid-cols-2 gap-4">
+  <ul class="grid md:grid-cols-2 gap-4">
     <li><EpicList v-model="selectedEpics" /></li>
-    <li><StoryList :stories="stories" kanban /></li>
+    <li v-if="stories.length"><StoryList :stories="stories" kanban /></li>
+    <li v-else class="test">
+      <BaseList class="grid place-items-center">
+        <p class="font-thin text-gray-400 text-sm italic">
+          Select one or more Epic's to see their Stories
+        </p>
+      </BaseList>
+    </li>
   </ul>
 </template>

@@ -8,17 +8,17 @@
     done: number;
   }>();
 
-  const total = computed(() => props.todo + props.inProgress + props.done);
+  const totalStories = computed(() => props.todo + props.inProgress + props.done);
 
-  const inProgressLength = computed(() => {
-    if (total.value === 0) {
+  const inProgressWithDoneLength = computed(() => {
+    if (totalStories.value === 0) {
       return 0;
     }
 
-    return ((props.inProgress + props.done) / total.value) * 100;
+    return ((props.inProgress + props.done) / totalStories.value) * 100;
   });
 
-  const doneLength = computed(() => {
+  const doneLengthRelativeToProgress = computed(() => {
     if (props.inProgress === 0) {
       return 100;
     }
@@ -29,8 +29,11 @@
 
 <template>
   <div class="rounded-full bg-gray-300 h-[.3rem]">
-    <div class="rounded-full bg-blue-600 h-full" :style="{ width: inProgressLength + '%' }">
-      <div class="rounded-full bg-green-600 h-full" :style="{ width: doneLength + '%' }"></div>
+    <div class="rounded-full bg-blue-600 h-full" :style="{ width: inProgressWithDoneLength + '%' }">
+      <div
+        class="rounded-full bg-green-600 h-full"
+        :style="{ width: doneLengthRelativeToProgress + '%' }"
+      ></div>
     </div>
   </div>
 </template>

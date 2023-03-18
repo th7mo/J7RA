@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <section class="bg-gray-100/70 border border-gray-200 rounded py-3 px-2 group">
+  <BaseList class="group">
     <h2
       v-if="title"
       class="text-base text-slate-700 font-light ml-1 mb-2 flex items-center gap-4 select-none"
@@ -33,7 +33,11 @@
         :story="story"
         :key="story.key + '-backlog'"
       />
-      <StoryListItemCreateRow class="opacity-0 group-hover:opacity-100" text="Create Story" v-if="createRow"/>
+      <StoryListItemCreateRow
+        class="opacity-0 group-hover:opacity-100"
+        text="Create Story"
+        v-if="createRow"
+      />
     </ul>
-  </section>
+  </BaseList>
 </template>
