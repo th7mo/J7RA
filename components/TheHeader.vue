@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <nav class="top-0 border-b border-gray-200 select-none">
+  <nav class="top-0 border-b border-gray-200 select-none fixed w-full bg-white z-50">
     <ul class="flex h-14 gap-6 items-center">
       <li class="flex items-center h-full gap-4 pl-8 pr-4">
         <figure class="w-8 h-8">

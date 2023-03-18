@@ -64,7 +64,13 @@
           v-model="userStory.description"
           class="description mb-3"
         />
-        <BaseInput class="w-1/2 mb-3" label-text="Assignee" v-model="userStory.assignee" />
+        <li class="grid grid-cols-2">
+          <div>
+            <BaseInput class="mb-3" label-text="Assignee" v-model="userStory.assignee" />
+          </div>
+          <EpicDropdown :story="userStory" class="ml-auto mt-5" />
+        </li>
+
         <BaseInputNumber class="w-1/2" label-text="Story points" v-model="userStory.points" />
 
         <section class="flex justify-end">
