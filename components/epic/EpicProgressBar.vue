@@ -30,7 +30,7 @@
 <template>
   <div class="rounded-full bg-gray-300 h-[.3rem]">
     <div class="rounded-full bg-blue-600 h-full" :style="{ width: inProgressLength + '%' }">
-      <div class="rounded-full bg-green-600/100 h-full" :style="{ width: doneLength + '%' }"></div>
+      <div class="rounded-full bg-green-600 h-full" :style="{ width: doneLength + '%' }"></div>
     </div>
   </div>
 </template>
