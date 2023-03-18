@@ -9,7 +9,6 @@
   }>();
 
   const total = computed(() => props.todo + props.inProgress + props.done);
-  console.log(total);
 
   const inProgressLength = computed(() => {
     if (total.value === 0) {
@@ -21,7 +20,7 @@
 
   const doneLength = computed(() => {
     if (props.inProgress === 0) {
-      return inProgressLength.value;
+      return 100;
     }
 
     return (props.done / (props.done + props.inProgress)) * 100;
