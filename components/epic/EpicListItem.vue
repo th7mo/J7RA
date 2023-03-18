@@ -7,6 +7,7 @@
   }>();
 
   const epicStore = useEpicStore();
+  const storyStore = useStoryStore();
 
   const emit = defineEmits(['update:modelValue']);
 
@@ -27,6 +28,31 @@
   function save() {
     epicStore.putEpics();
   }
+
+  const stories = computed(() => {
+    return storyStore.getStoriesOfEpics([props.epic.id]);
+  });
+  const todo = computed(() => {
+    return getAmountOfStoriesWithProgress('To Do');
+  });
+
+  const inProgress = computed(() => {
+    return getAmountOfStoriesWithProgress('In Progress');
+  });
+
+  const done = computed(() => {
+    return getAmountOfStoriesWithProgress('Done');
+  });
+
+  function getAmountOfStoriesWithProgress(targetProgress: string): number {
+    let count = 0;
+    for (const story of stories.value) {
+      if (story.progress === targetProgress) {
+        count++;
+      }
+    }
+    return count;
+  }
 </script>
 
 <template>
@@ -39,7 +65,25 @@
       EPIC-{{ epic.id }}
     </p>
     <BaseInput v-model="epic.name" class="text-sm py-[2px]" borderless @blur="save" />
-    <EpicOptions :epic="epic" />
+    <EpicOptions class="justify-self-end" :epic="epic" />
+    <EpicProgressBar
+      class="col-span-3 mx-7"
+      :epic="epic"
+      :todo="todo"
+      :in-progress="inProgress"
+      :done="done"
+    />
+    <ul class="flex gap-1">
+      <li>
+        <BaseLabel green>{{ done }}</BaseLabel>
+      </li>
+      <li>
+        <BaseLabel blue>{{ inProgress }}</BaseLabel>
+      </li>
+      <li>
+        <BaseLabel gray>{{ todo }}</BaseLabel>
+      </li>
+    </ul>
   </li>
 </template>
 

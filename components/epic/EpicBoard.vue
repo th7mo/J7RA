@@ -1,18 +1,10 @@
 <script setup lang="ts">
   import { useStoryStore } from '@/composables/useStories';
-  import { UserStory } from '~~/composables/useStoriesService';
   const storyStore = useStoryStore();
   const selectedEpics = ref([] as number[]);
 
   const stories = computed(() => {
-    const storyList: UserStory[] = [];
-    for (const story of storyStore.getStories) {
-      if (story.epic && selectedEpics.value.includes(story.epic)) {
-        storyList.push(story);
-      }
-    }
-
-    return storyList;
+    return storyStore.getStoriesOfEpics(selectedEpics.value);
   });
 </script>
 

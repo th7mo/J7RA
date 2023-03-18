@@ -88,5 +88,16 @@ export const useStoryStore = defineStore('stories', {
       }
       this.saveStories();
     },
+
+    getStoriesOfEpics(epicIds: number[]): UserStory[] {
+      const storyList: UserStory[] = [];
+      for (const story of this.stories) {
+        if (story.epic && epicIds.includes(story.epic)) {
+          storyList.push(story);
+        }
+      }
+
+      return storyList;
+    },
   },
 });

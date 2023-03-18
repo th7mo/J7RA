@@ -27,5 +27,5 @@
     :story="storyStore.getCurrentStory"
     @close="closeEditingDialog"
   />
-  <NuxtPage class="px-10" />
+  <NuxtPage class="px-10 pt-16 pb-32" />
 </template>
